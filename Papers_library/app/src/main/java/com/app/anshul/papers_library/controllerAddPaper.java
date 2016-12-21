@@ -12,11 +12,12 @@ import android.widget.Spinner;
  */
 public class controllerAddPaper {
 
+    //private  static  final enum Course
     private  static int selectedCourse = 0;
     private  static int selectedYear = 0;
     private  static int selectedDept = 0;
     private  static int selectedSem = 0;
-
+    private  static String selectedDeptName;
 
     public static void setVisibilityyearListLayout(LinearLayout yearListLayout){
 
@@ -71,7 +72,12 @@ public class controllerAddPaper {
     }
 
 
+    public static void setSelectedDeptName(String selectedDeptName){
+        controllerAddPaper.selectedDeptName = selectedDeptName;
+    }
 
-
+    public static String getSelectedDeptName(){
+        return selectedDeptName;
+    }
 
 }

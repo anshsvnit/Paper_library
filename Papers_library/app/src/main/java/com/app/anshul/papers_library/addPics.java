@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
@@ -16,8 +17,12 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.io.Console;
+import java.io.File;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by anshul on 21/12/16.
@@ -36,6 +41,7 @@ public class addPics extends AppCompatActivity {
     String imageEncoded;
     List<String> imagesEncodedList;
     Uri uri;
+    private static final int REQUEST_PHOTO=2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +53,7 @@ public class addPics extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras().getBundle("Values");
         int selection = bundle.getInt("Selection");
         upload = (Button) findViewById( R.id.galleryupload);
-
+        takePics=(Button) findViewById(R.id.takepictures);
          if (selection == 1){
             setup1styearTview(bundle);
          }
@@ -70,7 +76,32 @@ public class addPics extends AppCompatActivity {
             }
         });
 
+        takePics.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                File photoFile=get_photo_file();
+                final Intent capture_image=new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                Uri uri= Uri.fromFile(photoFile);
+                capture_image.putExtra(MediaStore.EXTRA_OUTPUT,uri);
+                Log.w("ABC",uri.toString());
+                if(photoFile!=null)
+                startActivityForResult(capture_image,REQUEST_PHOTO);
+            }
+        });
+    }
 
+    private String get_photo_filename(){
+
+        return "IMG_"+UUID.randomUUID().toString()+".jpg";
+
+    }
+
+    private File get_photo_file(){
+        File externalFilesDirectory=Environment.getExternalStorageDirectory();
+
+        if(externalFilesDirectory==null)
+            return null;
+        return new File(externalFilesDirectory.getAbsolutePath()+"/DCIM/Camera/"+get_photo_filename());
     }
 
     @Override

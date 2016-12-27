@@ -16,6 +16,10 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.itextpdf.text.DocumentException;
+
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -100,9 +104,17 @@ public class addPics extends AppCompatActivity {
 
                         imagesEncodedList.add(imageEncoded);
                         cursor.close();
+                        try {
+                            makepdf.getInstance().createPdf(imagesEncodedList);
+                        }
+                        catch(FileNotFoundException e){
+                            Log.v("Error","File Not Found");
+                        }
+                        catch (DocumentException de){
+                            Log.v("Error","Document Excepttion");
 
+                        }
                     }
-                    //Log.v("LOG_TAG", "Selected Images" + mArrayUri.size());
                 }
 
             }

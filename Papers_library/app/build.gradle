@@ -24,4 +24,9 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.4.0'
     compile 'com.android.support:design:23.4.0'
+    compile 'com.madgag:scpkix-jdk15on:1.47.0.1'
+    compile 'com.itextpdf:itext-pdfa:5.5.10'
+    compile 'com.lowagie:itext-rtf:2.1.7'
+    compile 'com.itextpdf:itext-parent:1.0.0'
+    compile 'com.itextpdf:itextg:5.5.10'
 }

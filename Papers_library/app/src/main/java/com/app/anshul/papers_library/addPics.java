@@ -1,14 +1,17 @@
 package com.app.anshul.papers_library;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.app.Notification;
 import android.content.ClipData;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -27,12 +30,13 @@ import java.util.List;
  * Created by anshul on 21/12/16.
  */
 
-public class addPics extends AppCompatActivity {
+public class addPics extends Activity {
 
     TextView courseSelected,yearSelected,deptSelected,semSelected;
     LinearLayout layoutcourse,layoutyear,layoutdept,layoutsem;
     Button upload,takePics;
     private static final int RESULT_LOAD_IMAGE=1;
+    public final int RESULT_CAM = 1001;
     ArrayList<Uri> mArrayUri = new ArrayList<Uri>();
     ClipData.Item item;
     String imageEncoded;
@@ -52,6 +56,7 @@ public class addPics extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras().getBundle("Values");
         int selection = bundle.getInt("Selection");
         upload = (Button) findViewById( R.id.galleryupload);
+        takePics = (Button) findViewById(R.id.takepictures);
 
          if (selection == 1){
             setup1styearTview(bundle);
@@ -66,17 +71,24 @@ public class addPics extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-                intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
-                intent.setAction(Intent.ACTION_GET_CONTENT);
-
-                intent.setType("image/*");
-                startActivityForResult(Intent.createChooser(intent, "Select Picture"), RESULT_LOAD_IMAGE);
-
+            selectImages();
             }
         });
 
+        takePics.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentcam = new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA);
+                intentcam.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
 
+                if (intentcam.resolveActivity(getPackageManager()) != null) {
+                    startActivityForResult(intentcam,RESULT_CAM);
+                }
+
+
+
+            }
+        });
     }
 
     @Override
@@ -106,21 +118,40 @@ public class addPics extends AppCompatActivity {
 
                         imagesEncodedList.add(imageEncoded);
                         cursor.close();
-                        try {
-                            myFile = makepdf.getInstance().createPdf(imagesEncodedList,filename);
-                        }
-                        catch(FileNotFoundException e){
-                            Log.v("Error","File Not Found");
-                        }
-                        catch (DocumentException de){
-                            Log.v("Error","Document Excepttion");
 
-                        }
+                        new AlertDialog.Builder(this)
+                                .setTitle("Submit Paper")
+                                .setMessage("Are you sure you want to Submit the Paper")
+                                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        try {
+                                            myFile = makepdf.getInstance().createPdf(imagesEncodedList, filename);
+                                        } catch (FileNotFoundException e) {
+                                            Log.v("Error", "File Not Found");
+                                        } catch (DocumentException de) {
+                                            Log.v("Error", "Document Excepttion");
+
+                                        }
+
+                                        viewPdf(myFile);
+                                    }})
+
+                                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+
+                                    }
+                                })
+                                .setIcon(android.R.drawable.ic_dialog_alert)
+                                .show();
+
                     }
 
                 }
             }
-            viewPdf(myFile);
+
+        }
+        else if (resultCode == 0 && requestCode== RESULT_CAM){
+            selectImages();
         }
 
     }
@@ -173,6 +204,16 @@ public class addPics extends AppCompatActivity {
         intent.setDataAndType(Uri.fromFile(myFile), "application/pdf");
         intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
         startActivity(intent);
+    }
+
+    public void selectImages(){
+
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+
+        intent.setType("image/*");
+        startActivityForResult(Intent.createChooser(intent, "Select Picture"), RESULT_LOAD_IMAGE);
     }
 
 }

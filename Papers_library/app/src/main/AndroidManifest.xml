@@ -34,8 +34,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".addQPaper" />
-        <activity android:name=".addPics" />
+        <activity android:name=".addQPaper"
+            android:theme="@style/Theme.AppCompat.Light" />
+        <activity
+            android:name=".addPics"
+            android:theme="@style/Theme.AppCompat.Light" />
     </application>
 
 </manifest>

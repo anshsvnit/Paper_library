@@ -33,7 +33,7 @@ public class makepdf {
         return instance;
     }
 
-    public void createPdf( List<String> imagesEncodedList) throws FileNotFoundException, DocumentException {
+    public void createPdf( List<String> imagesEncodedList, String filename) throws FileNotFoundException, DocumentException {
 
         File pdfFolder = new File(Environment.getExternalStoragePublicDirectory(
                 Environment.DIRECTORY_DOCUMENTS), "pdfpapers");
@@ -45,35 +45,10 @@ public class makepdf {
             Log.i("folder", "Pdf Directory created");
         }
 
-        Date date = new Date() ;
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(date);
-        //String str = new String(pdfFolder + timeStamp + ".pdf");
-        myFile = new File(pdfFolder + timeStamp + ".pdf");
+
+        myFile = new File(pdfFolder + filename + ".pdf");
 
         Log.v("file",myFile.toString());
-        OutputStream output = new FileOutputStream(myFile);
-        Document document = new Document();
-        PdfWriter.getInstance(document, output);
-        document.open();
 
-        try {
-            for(int i=0;i<imagesEncodedList.size();i++) {
-
-                img = com.itextpdf.text.Image.getInstance(imagesEncodedList.get(i));
-
-                img.scalePercent(90f, 90f);
-                img.setAbsolutePosition(0, 0);
-
-                document.newPage();
-
-                document.add(img);
-
-            }
-
-            document.close();}
-        catch (Exception e) {
-            Log.v("error",e.getMessage());
-        }
-
-    }
+}
 }

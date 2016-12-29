@@ -40,6 +40,7 @@ public class addPics extends AppCompatActivity {
     String imageEncoded;
     List<String> imagesEncodedList;
     Uri uri;
+    String filename;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -140,6 +141,7 @@ public class addPics extends AppCompatActivity {
         layoutyear.setVisibility(View.VISIBLE);
         layoutdept.setVisibility(View.GONE);
         layoutsem.setVisibility(View.GONE);
+        filename = bundle.getString("course")+bundle.getString("year");
     }
 
     public void setupRestYearTview( Bundle bundle){
@@ -147,6 +149,7 @@ public class addPics extends AppCompatActivity {
         yearSelected.setText(bundle.getString("year"));
         deptSelected.setText(bundle.getString("dept"));
         semSelected.setText(Integer.toString(bundle.getInt("sem"))+"th Semester");
+        filename = bundle.getString("course")+bundle.getString("year")+bundle.getString("dept")+bundle.getInt("sem");
 
         layoutcourse.setVisibility(View.VISIBLE);
         layoutyear.setVisibility(View.VISIBLE);

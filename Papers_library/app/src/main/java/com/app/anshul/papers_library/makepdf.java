@@ -22,9 +22,8 @@ import java.util.List;
 public class makepdf {
 
     private static makepdf instance;
-    File myFile;
+    private File myFile;
     com.itextpdf.text.Image img;
-
 
     public static makepdf getInstance() {
         if (instance == null) {
@@ -33,7 +32,7 @@ public class makepdf {
         return instance;
     }
 
-    public void createPdf( List<String> imagesEncodedList, String filename) throws FileNotFoundException, DocumentException {
+    public File createPdf( List<String> imagesEncodedList, String filename) throws FileNotFoundException, DocumentException {
 
         File pdfFolder = new File(Environment.getExternalStoragePublicDirectory(
                 Environment.DIRECTORY_DOCUMENTS), "pdfpapers");
@@ -50,5 +49,30 @@ public class makepdf {
 
         Log.v("file",myFile.toString());
 
+        OutputStream output = new FileOutputStream(myFile);
+        Document document = new Document();
+        PdfWriter.getInstance(document, output);
+        document.open();
+
+        try {
+            for(int i=0;i<imagesEncodedList.size();i++) {
+
+                img = com.itextpdf.text.Image.getInstance(imagesEncodedList.get(i));
+
+                img.scalePercent(90f, 90f);
+                img.setAbsolutePosition(0, 0);
+
+                document.newPage();
+
+                document.add(img);
+
+            }
+
+            document.close();}
+        catch (Exception e) {
+            Log.v("error",e.getMessage());
+        }
+        return myFile;
+    }
 }
-}
+

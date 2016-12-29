@@ -27,8 +27,6 @@ import java.util.List;
  * Created by anshul on 21/12/16.
  */
 
-
-
 public class addPics extends AppCompatActivity {
 
     TextView courseSelected,yearSelected,deptSelected,semSelected;
@@ -41,6 +39,8 @@ public class addPics extends AppCompatActivity {
     List<String> imagesEncodedList;
     Uri uri;
     String filename;
+    File myFile;
+    public static addPics mInstance;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +72,7 @@ public class addPics extends AppCompatActivity {
 
                 intent.setType("image/*");
                 startActivityForResult(Intent.createChooser(intent, "Select Picture"), RESULT_LOAD_IMAGE);
+
             }
         });
 
@@ -106,7 +107,7 @@ public class addPics extends AppCompatActivity {
                         imagesEncodedList.add(imageEncoded);
                         cursor.close();
                         try {
-                            makepdf.getInstance().createPdf(imagesEncodedList);
+                            myFile = makepdf.getInstance().createPdf(imagesEncodedList,filename);
                         }
                         catch(FileNotFoundException e){
                             Log.v("Error","File Not Found");
@@ -116,12 +117,22 @@ public class addPics extends AppCompatActivity {
 
                         }
                     }
-                }
 
+                }
             }
+            viewPdf(myFile);
         }
 
     }
+
+    public static addPics getInstance() {
+        if(mInstance == null)
+        {
+            mInstance = new addPics();
+        }
+        return mInstance;
+    }
+
     public void initialize(){
         courseSelected = (TextView) findViewById(R.id.courseselected);
         yearSelected =(TextView) findViewById(R.id.yearSelected);
@@ -155,6 +166,13 @@ public class addPics extends AppCompatActivity {
         layoutyear.setVisibility(View.VISIBLE);
         layoutdept.setVisibility(View.VISIBLE);
         layoutsem.setVisibility(View.VISIBLE);
+    }
+
+    private void viewPdf(File myFile){
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setDataAndType(Uri.fromFile(myFile), "application/pdf");
+        intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+        startActivity(intent);
     }
 
 }

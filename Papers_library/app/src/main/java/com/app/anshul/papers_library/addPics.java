@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.app.Notification;
 import android.content.ClipData;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
@@ -18,11 +19,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.itextpdf.text.DocumentException;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,6 +48,8 @@ public class addPics extends Activity {
     String filename;
     File myFile;
     public static addPics mInstance;
+    Context mcontext;
+    public static final String UPLOAD_URL = "http://192.168.0.104/upload.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +62,7 @@ public class addPics extends Activity {
         int selection = bundle.getInt("Selection");
         upload = (Button) findViewById( R.id.galleryupload);
         takePics = (Button) findViewById(R.id.takepictures);
+        mcontext = this;
 
          if (selection == 1){
             setup1styearTview(bundle);
@@ -84,9 +90,6 @@ public class addPics extends Activity {
                 if (intentcam.resolveActivity(getPackageManager()) != null) {
                     startActivityForResult(intentcam,RESULT_CAM);
                 }
-
-
-
             }
         });
     }
@@ -119,32 +122,37 @@ public class addPics extends Activity {
                         imagesEncodedList.add(imageEncoded);
                         cursor.close();
 
-                        new AlertDialog.Builder(this)
-                                .setTitle("Submit Paper")
-                                .setMessage("Are you sure you want to Submit the Paper")
-                                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        try {
-                                            myFile = makepdf.getInstance().createPdf(imagesEncodedList, filename);
-                                        } catch (FileNotFoundException e) {
-                                            Log.v("Error", "File Not Found");
-                                        } catch (DocumentException de) {
-                                            Log.v("Error", "Document Excepttion");
-
-                                        }
-
-                                        viewPdf(myFile);
-                                    }})
-
-                                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
-                                    public void onClick(DialogInterface dialog, int which) {
-
-                                    }
-                                })
-                                .setIcon(android.R.drawable.ic_dialog_alert)
-                                .show();
 
                     }
+                    new AlertDialog.Builder(mcontext)
+                            .setTitle("Submit Paper")
+                            .setMessage("Are you sure you want to Submit the Paper")
+                            .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    try {
+                                        myFile = makepdf.getInstance().createPdf(imagesEncodedList, filename);
+                                        Log.v("location",myFile.toString() );
+                                        MultipartRequest.getInstance().saveProfileAccount(myFile.toString(),filename+".pdf",getApplicationContext());
+                                    } catch (FileNotFoundException e) {
+                                        Log.v("Error", "File Not Found");
+                                    } catch (DocumentException de) {
+                                        Log.v("Error", "Document Excepttion");
+
+                                    }
+                                    //viewPdf(myFile);
+
+                                    if(!settings.getInstance().getKeepcopyofimages()){
+                                        deleteselectedimages(imagesEncodedList);
+                                    }
+                                }})
+
+                            .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+
+                                }
+                            })
+                            .setIcon(android.R.drawable.ic_dialog_alert)
+                            .show();
 
                 }
             }
@@ -215,5 +223,20 @@ public class addPics extends Activity {
         intent.setType("image/*");
         startActivityForResult(Intent.createChooser(intent, "Select Picture"), RESULT_LOAD_IMAGE);
     }
+
+    private void deleteselectedimages(List<String> list) {
+
+            Log.v("deleted file","inside delete");
+
+            for(String filename:list) {
+                Log.v("check delete",filename);
+
+                File filedelete = new File(filename);
+                boolean deleted = filedelete.delete();
+                if(deleted){
+                    Log.v("deleted file",filename);
+                }
+            }
+        }
 
 }

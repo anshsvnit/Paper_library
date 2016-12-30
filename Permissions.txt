@@ -1,0 +1,5 @@
+For Permissions for FIle read/write
+
+sudo chown -R daemon opt
+sudo chmod -R u+rX opt
+

@@ -58,20 +58,20 @@ public class addPics extends Activity {
         upload = (Button) findViewById( R.id.galleryupload);
         takePics = (Button) findViewById(R.id.takepictures);
 
-         if (selection == 1){
+        if (selection == 1){
             setup1styearTview(bundle);
-         }
+        }
         else{
 
-             setupRestYearTview(bundle);
-         }
+            setupRestYearTview(bundle);
+        }
 
 
         upload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-            selectImages();
+                selectImages();
             }
         });
 

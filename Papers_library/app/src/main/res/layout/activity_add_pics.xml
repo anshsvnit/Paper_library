@@ -16,16 +16,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Course"
+        android:text="Subject"
         android:id="@+id/courseText"
         android:layout_weight="1" />
 
-    <TextView
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:id="@+id/courseselected"
-        android:layout_weight="1" />
+        android:id="@+id/subjectinput"
+        android:layout_weight="2" />
     </LinearLayout>
 
     <LinearLayout
@@ -39,16 +39,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Year"
+        android:text="YearofExam"
         android:id="@+id/yearText"
         android:layout_weight="1" />
 
-    <TextView
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:id="@+id/yearSelected"
-        android:layout_weight="1" />
+        android:id="@+id/yearofexaminput"
+        android:layout_weight="2" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -61,16 +61,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Department"
-        android:id="@+id/deptText"
+        android:text="exam"
+        android:id="@+id/examText"
         android:layout_weight="1" />
 
-    <TextView
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:id="@+id/selectedDepartment"
-        android:layout_weight="1" />
+        android:id="@+id/examinput"
+        android:layout_weight="2" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -83,16 +83,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Semester"
-        android:id="@+id/semesterText"
+        android:text="Remarks"
+        android:id="@+id/remarktext"
         android:layout_weight="1" />
 
-    <TextView
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:id="@+id/selectedSemester"
-        android:layout_weight="1" />
+        android:id="@+id/remarkinput"
+        android:layout_weight="2" />
     </LinearLayout>
 
     <LinearLayout

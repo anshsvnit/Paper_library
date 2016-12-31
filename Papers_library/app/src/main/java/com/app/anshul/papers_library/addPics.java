@@ -10,22 +10,20 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.itextpdf.text.DocumentException;
-
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.lang.reflect.Array;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,7 +34,10 @@ import java.util.List;
 public class addPics extends Activity {
 
     TextView courseSelected,yearSelected,deptSelected,semSelected;
+    EditText yearInput,subjectInput,examInput,remarkInput;
     LinearLayout layoutcourse,layoutyear,layoutdept,layoutsem;
+    String yearString,examString,remarkString,subjectString;
+
     Button upload,takePics;
     private static final int RESULT_LOAD_IMAGE=1;
     public final int RESULT_CAM = 1001;
@@ -49,7 +50,7 @@ public class addPics extends Activity {
     File myFile;
     public static addPics mInstance;
     Context mcontext;
-    public static final String UPLOAD_URL = "http://192.168.0.104/upload.php";
+    Bundle details,bundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,10 +59,16 @@ public class addPics extends Activity {
         setContentView(R.layout.activity_add_pics);
 
         initialize();
-        Bundle bundle = getIntent().getExtras().getBundle("Values");
+        bundle = getIntent().getExtras().getBundle("Values");
         int selection = bundle.getInt("Selection");
         upload = (Button) findViewById( R.id.galleryupload);
         takePics = (Button) findViewById(R.id.takepictures);
+        yearInput = (EditText)findViewById(R.id.yearofexaminput);
+        subjectInput = (EditText)  findViewById(R.id.subjectinput);
+        examInput = (EditText) findViewById(R.id.examinput);
+        remarkInput = (EditText) findViewById(R.id.remarkinput);
+        details = new Bundle();
+
         mcontext = this;
 
          if (selection == 1){
@@ -71,7 +78,6 @@ public class addPics extends Activity {
 
              setupRestYearTview(bundle);
          }
-
 
         upload.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -124,26 +130,29 @@ public class addPics extends Activity {
 
 
                     }
-                    new AlertDialog.Builder(mcontext)
+
+                   AlertDialog.Builder alertDialogBuilder =  new AlertDialog.Builder(mcontext)
                             .setTitle("Submit Paper")
                             .setMessage("Are you sure you want to Submit the Paper")
                             .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {
-                                    try {
-                                        myFile = makepdf.getInstance().createPdf(imagesEncodedList, filename);
-                                        Log.v("location",myFile.toString() );
-                                        MultipartRequest.getInstance().saveProfileAccount(myFile.toString(),filename+".pdf",getApplicationContext());
-                                    } catch (FileNotFoundException e) {
-                                        Log.v("Error", "File Not Found");
-                                    } catch (DocumentException de) {
-                                        Log.v("Error", "Document Excepttion");
 
-                                    }
-                                    //viewPdf(myFile);
+                                        try {
+                                            myFile = makepdf.getInstance().createPdf(imagesEncodedList, filename);
+                                            Log.v("location", myFile.toString());
+                                            MultipartRequest.getInstance().saveProfileAccount(myFile.toString(), filename + ".pdf",details, bundle, getApplicationContext());
+                                        } catch (FileNotFoundException e) {
+                                            Log.v("Error", "File Not Found");
+                                        } catch (DocumentException de) {
+                                            Log.v("Error", "Document Excepttion");
 
-                                    if(!settings.getInstance().getKeepcopyofimages()){
-                                        deleteselectedimages(imagesEncodedList);
-                                    }
+                                        }
+
+                                        if (!settings.getInstance().getKeepcopyofimages()) {
+                                            deleteselectedimages(imagesEncodedList);
+                                        }
+                                        viewPdf(myFile);
+
                                 }})
 
                             .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
@@ -151,9 +160,16 @@ public class addPics extends Activity {
 
                                 }
                             })
-                            .setIcon(android.R.drawable.ic_dialog_alert)
-                            .show();
+                            .setIcon(android.R.drawable.ic_dialog_alert);
 
+                    AlertDialog submitPaper = alertDialogBuilder.create();
+
+                    if(isAllFilled()) {
+                        submitPaper.show();
+                    }
+                    else{
+                        Toast.makeText(this,"Please fill the required fields",Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
 
@@ -173,10 +189,6 @@ public class addPics extends Activity {
     }
 
     public void initialize(){
-        courseSelected = (TextView) findViewById(R.id.courseselected);
-        yearSelected =(TextView) findViewById(R.id.yearSelected);
-        deptSelected = (TextView) findViewById(R.id.selectedDepartment);
-        semSelected = (TextView) findViewById(R.id.selectedSemester);
         layoutcourse = (LinearLayout) findViewById(R.id.layoutcourse);
         layoutyear = (LinearLayout) findViewById(R.id.layoutyear);
         layoutdept = (LinearLayout) findViewById(R.id.layoutdept);
@@ -184,9 +196,6 @@ public class addPics extends Activity {
     }
 
     public void setup1styearTview( Bundle bundle){
-        courseSelected.setText(bundle.getString("course"));
-
-        yearSelected.setText(bundle.getString("year"));
         layoutcourse.setVisibility(View.VISIBLE);
         layoutyear.setVisibility(View.VISIBLE);
         layoutdept.setVisibility(View.GONE);
@@ -195,10 +204,6 @@ public class addPics extends Activity {
     }
 
     public void setupRestYearTview( Bundle bundle){
-        courseSelected.setText(bundle.getString("course"));
-        yearSelected.setText(bundle.getString("year"));
-        deptSelected.setText(bundle.getString("dept"));
-        semSelected.setText(Integer.toString(bundle.getInt("sem"))+"th Semester");
         filename = bundle.getString("course")+bundle.getString("year")+bundle.getString("dept")+bundle.getInt("sem");
 
         layoutcourse.setVisibility(View.VISIBLE);
@@ -238,5 +243,26 @@ public class addPics extends Activity {
                 }
             }
         }
+
+    private boolean isAllFilled(){
+
+        yearString= yearInput.getText().toString().trim();
+        examString= examInput.getText().toString().trim();
+        remarkString= remarkInput.getText().toString().trim();
+        subjectString= subjectInput.getText().toString().trim();
+
+        if(yearString!=null && examString!=null && subjectString!=null){
+            details.putString("year",yearString);
+            details.putString("exam",examString);
+            details.putString("subject",subjectString);
+            if(remarkString!=null){
+                details.putString("remark",remarkString);
+            }
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 
 }

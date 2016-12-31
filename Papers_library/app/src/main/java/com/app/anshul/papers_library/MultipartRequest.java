@@ -1,6 +1,7 @@
 package com.app.anshul.papers_library;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -39,7 +40,7 @@ public class MultipartRequest {
         return instance;
     }
 
-    public void saveProfileAccount(final String address, final String pdffilename, final Context context) {
+    public void saveProfileAccount(final String address, final String pdffilename, final Bundle details , final Bundle bundle, final Context context) {
 
         String url = "http://192.168.0.104/upload.php";
         VolleyMultipartRequest multipartRequest = new VolleyMultipartRequest(Request.Method.POST, url, new Response.Listener<NetworkResponse>() {
@@ -47,7 +48,7 @@ public class MultipartRequest {
             public void onResponse(NetworkResponse response) {
 
                 String resultResponse = new String(response.data);
-                //Log.i("response",resultResponse);
+                Log.i("response",resultResponse);
                 try {
                     JSONObject result = new JSONObject(resultResponse);
                     String status = result.getString("status");
@@ -105,8 +106,22 @@ public class MultipartRequest {
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<>();
-                params.put("parameter 1", "Param 1");
-                params.put("parameter 2", "Param 2");
+                params.put("yearofexam", details.getString("year"));
+                params.put("subject", details.getString("subject"));
+                params.put("exam", details.getString("exam"));
+                params.put("course",details.getString("course"));
+                params.put("year",details.getString("year"));
+                if(details.getInt("selection") == 2) {
+                    params.put("semester",Integer.toString(details.getInt("sem")));
+                    params.put("department",details.getString("dept"));
+                }
+
+                try{
+                    params.put("remark", details.getString("remark"));
+                }
+                catch (Exception e){
+                    Log.v("remark not there",e.toString());
+                }
                 return params;
             }
 

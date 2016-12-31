@@ -7,6 +7,12 @@ $targetPath = $targetPath . basename($_FILES['pdffile']['name']);
 $newFilePath = $targetPath;
     //echo $targetPath;
 
+echo ($_POST['yearofexam']);
+echo ($_POST['subject']);
+echo ($_POST['exam']);
+echo ($_POST['course']);
+echo ($_POST['year']);
+
 
 $fh = fopen($targetPath, 'w');    
 

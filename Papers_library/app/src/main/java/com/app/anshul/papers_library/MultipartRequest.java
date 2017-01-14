@@ -1,6 +1,7 @@
 package com.app.anshul.papers_library;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
@@ -23,6 +24,8 @@ import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.app.anshul.papers_library.NetworkConnection.context;
+
 
 /**
  * Created by anshul on 29/12/16.
@@ -42,8 +45,8 @@ public class MultipartRequest {
 
     public void savePDFFile(final String address, final String pdffilename, final Bundle details , final Bundle bundle, final Context context) {
 
-        String url = "http://192.168.0.104/upload.php";
-        VolleyMultipartRequest multipartRequest = new VolleyMultipartRequest(Request.Method.POST, url, new Response.Listener<NetworkResponse>() {
+
+        VolleyMultipartRequest multipartRequest = new VolleyMultipartRequest(Request.Method.POST, constantResources.urlupload, new Response.Listener<NetworkResponse>() {
             @Override
             public void onResponse(NetworkResponse response) {
 
@@ -107,15 +110,13 @@ public class MultipartRequest {
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<>();
-                params.put("yearofexam", details.getString("year"));
-                params.put("subject", details.getString("subject"));
-                params.put("exam", details.getString("exam"));
-                params.put("course",details.getString("course"));
-                params.put("year",details.getString("year"));
-                if(details.getInt("selection") == 2) {
-                    params.put("semester",Integer.toString(details.getInt("sem")));
-                    params.put("department",details.getString("dept"));
-                }
+                    params.put("yearofexam", details.getString("yearofExam"));
+                    params.put("subject", details.getString("subject"));
+                    params.put("exam", details.getString("exam"));
+                    params.put("course",bundle.getString("course"));
+                    params.put("year",bundle.getString("year"));
+                    params.put("semester",bundle.getString("sem"));
+                    params.put("department",bundle.getString("dept"));
 
                 try{
                     params.put("remark", details.getString("remark"));
@@ -172,5 +173,89 @@ public class MultipartRequest {
         return baos.toByteArray();
     }
 
+    public void getYearList(final Bundle details, final Context context){
 
+        VolleyMultipartRequest multipartRequest = new VolleyMultipartRequest(Request.Method.POST, constantResources.urlsearch, new Response.Listener<NetworkResponse>() {
+            @Override
+            public void onResponse(NetworkResponse response) {
+
+                String resultResponse = new String(response.data);
+                Log.i("response",resultResponse);
+                try {
+                    JSONObject result = new JSONObject(resultResponse);
+                    listyearJson(resultResponse, details);
+                    Intent intent = new Intent(context, yearList.class);
+                    intent.putExtra("Values", details);
+                    context.startActivity(intent);
+                    Toast.makeText(context, "Getting Year List" , Toast.LENGTH_SHORT).show();
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
+
+            }
+        },  new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                NetworkResponse networkResponse = error.networkResponse;
+                String errorMessage = "Unknown error";
+                if (networkResponse == null) {
+                    if (error.getClass().equals(TimeoutError.class)) {
+                        errorMessage = "Request timeout";
+                    } else if (error.getClass().equals(NoConnectionError.class)) {
+                        errorMessage = "Failed to connect server";
+                    }
+                } else {
+                    String result = new String(networkResponse.data);
+                    try {
+                        JSONObject response = new JSONObject(result);
+                        String status = response.getString("status");
+                        String message = response.getString("message");
+
+                        Log.e("Error Status", status);
+                        Log.e("Error Message", message);
+
+                        if (networkResponse.statusCode == 404) {
+                            errorMessage = "Resource not found";
+                        } else if (networkResponse.statusCode == 401) {
+                            errorMessage = message + " Please login again";
+                        } else if (networkResponse.statusCode == 400) {
+                            errorMessage = message + " Check your inputs";
+                        } else if (networkResponse.statusCode == 500) {
+                            errorMessage = message + " Something is getting wrong";
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+                Log.i("Error", errorMessage);
+                Toast.makeText(context, errorMessage, Toast.LENGTH_SHORT).show();
+
+                error.printStackTrace();
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<>();
+                params.put("course", details.getString("course"));
+                params.put("year", details.getString("year"));
+                params.put("dept", details.getString("dept"));
+                params.put("sem",details.getString("sem"));
+
+                return params;
+            }
+        };
+        Log.v("sizeg", multipartRequest.toString());
+        MyApplication.getInstance().addToReqQueue(multipartRequest);
+    }
+
+    public void listyearJson(String jsonObject, Bundle bundle){
+        ParseJson pj = new ParseJson(jsonObject);
+        pj.parseJSON();
+        return;
+
+    }
 }

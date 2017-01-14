@@ -1,6 +1,9 @@
 package com.app.anshul.papers_library;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.DialogFragment;
@@ -18,23 +21,39 @@ public class ScrollingMainActivity extends AppCompatActivity {
     private DialogFragment addNewQPaper;
     //FloatingActionButton fabAddQPaper = (FloatingActionButton) findViewById(R.id.fab);
 
+    Context context = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scrolling_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.floatingActionButton);
+        FloatingActionButton fabsearch = (FloatingActionButton) findViewById(R.id.fabfind);
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 FragmentManager fragmentManager = getSupportFragmentManager();
                 addNewQPaper = new addQPaper();
+                Bundle button_selection = new Bundle();
+                button_selection.putInt("addOrViewButtonSelection", 0);
+                addNewQPaper.setArguments(button_selection);
                 addNewQPaper.show(fragmentManager, "activity_add_qpaper");
 
+            }
+        });
+
+        fabsearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                addNewQPaper = new addQPaper();
+                Bundle button_selection = new Bundle();
+                button_selection.putInt("addOrViewButtonSelection", 1);
+                addNewQPaper.setArguments(button_selection);
+                addNewQPaper.show(fragmentManager, "activity_add_qpaper");
             }
         });
     }

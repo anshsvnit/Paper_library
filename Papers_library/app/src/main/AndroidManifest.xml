@@ -36,9 +36,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".addQPaper" />
-        <activity
-            android:name=".addPics" />
+        <activity android:name=".addPics" />
         <activity android:name=".mainActivityImageLoader" />
+        <activity android:name=".yearList" />
+        <activity android:name=".papersList"></activity>
     </application>
 
 </manifest>

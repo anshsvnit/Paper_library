@@ -28,6 +28,7 @@ public class addQPaper extends android.support.v4.app.DialogFragment implements 
     Spinner courseList,yearList,deptList,semList;
     LinearLayout layoutSpinners,yearListLayout,deptListLayout,semListLayout;
     Bundle bundle;
+    int button_selection;
 
     @Override
     public void onCreate(Bundle savedInstanceState){
@@ -48,9 +49,17 @@ public class addQPaper extends android.support.v4.app.DialogFragment implements 
 
                 if (validate()) {
 
-                    Intent intent = new Intent(getActivity(), addPics.class);
-                    intent.putExtra("Values", bundle);
-                    startActivity(intent);
+
+                    button_selection = getArguments().getInt("addOrViewButtonSelection");
+
+                    if(button_selection == 1){
+                        MultipartRequest.getInstance().getYearList(bundle,getActivity());
+                    }
+                    else {
+                        Intent intent = new Intent(getActivity(), addPics.class);
+                        intent.putExtra("Values", bundle);
+                        startActivity(intent);
+                    }
                 }
 
             }
@@ -252,7 +261,7 @@ public class addQPaper extends android.support.v4.app.DialogFragment implements 
                     bundle.putString("course", getResources().getStringArray(R.array.Course_List)[controllerAddPaper.getselectedCourse()]);
                     bundle.putString("year",getResources().getStringArray(R.array.Year_List_Msc)[controllerAddPaper.getselectedYear()]);
                     bundle.putString("dept",controllerAddPaper.getSelectedDeptName());
-                    bundle.putInt("sem", ((controllerAddPaper.getselectedYear() * 2) + controllerAddPaper.getselectedSem() - 2));
+                    bundle.putString("sem", Integer.toString(((controllerAddPaper.getselectedYear()-1)*2)+controllerAddPaper.getselectedSem()));
                     return true;
                 }
             }

@@ -388,10 +388,10 @@ CREATE TABLE `appphy10` (
 
 CREATE TABLE `B.Tech` (
   `_id` int(11) NOT NULL,
-  `Year` int(11) NOT NULL,
-  `Semester` int(11) NOT NULL,
-  `Department` varchar(15) NOT NULL,
-  `Sem_table_name` varchar(10) NOT NULL
+  `Year` varchar(15) NOT NULL,
+  `Semester` varchar(15) NOT NULL,
+  `Department` varchar(50) NOT NULL,
+  `Sem_table_name` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -941,10 +941,10 @@ CREATE TABLE `ele8` (
 --
 
 CREATE TABLE `M.Tech` (
-  `_id` int(11) NOT NULL,
-  `Year` int(11) NOT NULL,
-  `Semester` int(11) NOT NULL,
-  `Department` varchar(15) NOT NULL,
+   `_id` int(11) NOT NULL,
+  `Year` varchar(15) NOT NULL,
+  `Semester` varchar(15) NOT NULL,
+  `Department` varchar(50) NOT NULL,
   `Sem_table_name` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1416,17 +1416,16 @@ CREATE TABLE `Mmech4` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Msc`
+-- Table structure for table `M.Sc.`
 --
 
-CREATE TABLE `Msc` (
-  `_id` int(11) NOT NULL,
-  `Year` int(11) NOT NULL,
-  `Semester` int(11) NOT NULL,
-  `Department` varchar(20) NOT NULL,
+CREATE TABLE `M.Sc.` (
+   `_id` int(11) NOT NULL,
+  `Year` varchar(15) NOT NULL,
+  `Semester` varchar(15) NOT NULL,
+  `Department` varchar(50) NOT NULL,
   `Sem_table_name` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
 --
 -- Indexes for dumped tables
 --
@@ -1990,9 +1989,9 @@ ALTER TABLE `Mmech4`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `Msc`
+-- Indexes for table `M.Sc.`
 --
-ALTER TABLE `Msc`
+ALTER TABLE `M.Sc.`
   ADD PRIMARY KEY (`_id`),
   ADD KEY `Year` (`Year`);
 
@@ -2466,9 +2465,9 @@ ALTER TABLE `Mmech3`
 ALTER TABLE `Mmech4`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `Msc`
+-- AUTO_INCREMENT for table `M.Sc.`
 --
-ALTER TABLE `Msc`
+ALTER TABLE `M.Sc.`
   MODIFY `_id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

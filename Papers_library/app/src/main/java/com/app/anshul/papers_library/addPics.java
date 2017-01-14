@@ -15,6 +15,8 @@ import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -36,9 +38,10 @@ import static com.app.anshul.papers_library.controllerAddPics.getTrimmedData;
 
 public class addPics extends Activity {
 
-    EditText yearInput,subjectInput,examInput,remarkInput,nameInput;
-    LinearLayout layoutcourse,layoutyear,layoutdept,layoutsem;
+    EditText yearInput,subjectInput,examInput,remarkInput,nameInput,setInput;
+    LinearLayout layoutcourse,layoutyear,layoutdept,layoutsem,layoutset;
     String yearString,examString,remarkString,subjectString,nameString;
+    CheckBox hasSet;
 
     Button upload,takePics;
     private static final int RESULT_LOAD_IMAGE=1;
@@ -62,7 +65,6 @@ public class addPics extends Activity {
 
         initialize();
         bundle = getIntent().getExtras().getBundle("Values");
-        int selection = bundle.getInt("Selection");
         upload = (Button) findViewById( R.id.galleryupload);
         takePics = (Button) findViewById(R.id.takepictures);
         yearInput = (EditText)findViewById(R.id.yearofexaminput);
@@ -74,13 +76,17 @@ public class addPics extends Activity {
 
         mcontext = this;
 
-         if (selection == 1){
-            setup1styearTview(bundle);
-         }
-        else{
+        hasSet.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
 
-             setupRestYearTview(bundle);
-         }
+                }
+            }
+        });
+
+             setupYearTview(bundle);
+
 
         upload.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,9 +131,18 @@ public class addPics extends Activity {
                                 public void onClick(DialogInterface dialog, int which) {
 
                                         try {
+                                            filename = bundle.getString("course")+bundle.getString("year")+bundle.getString("dept")+bundle.getInt("sem")+ details.getString("subject")+details.getString("yearofExam")+details.getString("exam");
+
                                             myFile = makepdf.getInstance().createPdf(imagesEncodedList, filename);
+
                                             Log.v("location", myFile.toString());
-                                            MultipartRequest.getInstance().savePDFFile(myFile.toString(), filename + ".pdf",details, bundle, getApplicationContext());
+
+                                            if (NetworkConnection.getInstance(addPics.this).isOnline(addPics.this)) {
+
+                                                MultipartRequest.getInstance().savePDFFile(myFile.toString(), filename + ".pdf",details, bundle, getApplicationContext());
+                                            }else{
+                                                Toast.makeText(addPics.this, "Please Provide Internet.", Toast.LENGTH_LONG).show();
+                                            }
 
                                             if (!settings.getKeepcopyofimages()) {
                                                 deleteselectedimages(imagesEncodedList);
@@ -181,19 +196,12 @@ public class addPics extends Activity {
         layoutyear = (LinearLayout) findViewById(R.id.layoutyear);
         layoutdept = (LinearLayout) findViewById(R.id.layoutdept);
         layoutsem = (LinearLayout) findViewById(R.id.layoutsemester);
+        layoutset = (LinearLayout) findViewById(R.id.layoutset);
+        hasSet = (CheckBox) findViewById(R.id.hasset);
+        setInput = (EditText) findViewById(R.id.setinput);
     }
 
-    public void setup1styearTview( Bundle bundle){
-        layoutcourse.setVisibility(View.VISIBLE);
-        layoutyear.setVisibility(View.VISIBLE);
-        layoutdept.setVisibility(View.GONE);
-        layoutsem.setVisibility(View.GONE);
-        filename = bundle.getString("course")+bundle.getString("year");
-    }
-
-    public void setupRestYearTview( Bundle bundle){
-        filename = bundle.getString("course")+bundle.getString("year")+bundle.getString("dept")+bundle.getInt("sem");
-
+    public void setupYearTview( Bundle bundle){
         layoutcourse.setVisibility(View.VISIBLE);
         layoutyear.setVisibility(View.VISIBLE);
         layoutdept.setVisibility(View.VISIBLE);
@@ -241,7 +249,7 @@ public class addPics extends Activity {
         nameString = getTrimmedData(nameInput);
 
         if(yearString!=null && examString!=null && subjectString!=null){
-            details.putString("year",yearString);
+            details.putString("yearofExam",yearString);
             details.putString("exam",examString);
             details.putString("subject",subjectString);
             if(remarkString!=null){

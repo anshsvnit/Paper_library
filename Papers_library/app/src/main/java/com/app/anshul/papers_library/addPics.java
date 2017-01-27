@@ -23,9 +23,12 @@ import android.widget.Toast;
 import com.itextpdf.text.DocumentException;
 import java.io.File;
 import java.io.FileNotFoundException;
+import com.app.anshul.papers_library.controllerAddPics;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.app.anshul.papers_library.controllerAddPics.getTrimmedData;
 
 /**
  * Created by anshul on 21/12/16.
@@ -33,10 +36,9 @@ import java.util.List;
 
 public class addPics extends Activity {
 
-    TextView courseSelected,yearSelected,deptSelected,semSelected;
-    EditText yearInput,subjectInput,examInput,remarkInput;
+    EditText yearInput,subjectInput,examInput,remarkInput,nameInput;
     LinearLayout layoutcourse,layoutyear,layoutdept,layoutsem;
-    String yearString,examString,remarkString,subjectString;
+    String yearString,examString,remarkString,subjectString,nameString;
 
     Button upload,takePics;
     private static final int RESULT_LOAD_IMAGE=1;
@@ -67,6 +69,7 @@ public class addPics extends Activity {
         subjectInput = (EditText)  findViewById(R.id.subjectinput);
         examInput = (EditText) findViewById(R.id.examinput);
         remarkInput = (EditText) findViewById(R.id.remarkinput);
+        nameInput = (EditText) findViewById(R.id.nameinput);
         details = new Bundle();
 
         mcontext = this;
@@ -83,7 +86,9 @@ public class addPics extends Activity {
             @Override
             public void onClick(View v) {
 
-            selectImages();
+                Intent intent = new Intent(mcontext, mainActivityImageLoader.class);
+                startActivityForResult(intent,constantResources.IMAGE_LOADER);
+
             }
         });
 
@@ -106,41 +111,28 @@ public class addPics extends Activity {
 
         String[] filePathColumn = { MediaStore.Images.Media.DATA };
 
-        if (resultCode == RESULT_OK) {
-            if(requestCode == RESULT_LOAD_IMAGE){
-                if (data.getClipData() != null) {
+        if (resultCode == Activity.RESULT_OK) {
+            if(requestCode == constantResources.IMAGE_LOADER){
+
                     ClipData mClipData = data.getClipData();
                     imagesEncodedList = new ArrayList<String>();
-
-                    for (int i = 0; i < mClipData.getItemCount(); i++) {
-
-                        item = mClipData.getItemAt(i);
-                        uri = item.getUri();
-                        mArrayUri.add(uri);
-                        Cursor cursor = getContentResolver().query(uri, filePathColumn, null, null, null);
-
-                        cursor.moveToFirst();
-
-                        int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-                        imageEncoded = cursor.getString(columnIndex);
-                        Log.v("clip", imageEncoded);
-
-                        imagesEncodedList.add(imageEncoded);
-                        cursor.close();
-
-
-                    }
+                    imagesEncodedList = data.getStringArrayListExtra("imageList");
 
                    AlertDialog.Builder alertDialogBuilder =  new AlertDialog.Builder(mcontext)
                             .setTitle("Submit Paper")
-                            .setMessage("Are you sure you want to Submit the Paper")
+                            .setMessage("You have selected " + imagesEncodedList.size() + " pages. Are you sure you want to submit")
                             .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {
 
                                         try {
                                             myFile = makepdf.getInstance().createPdf(imagesEncodedList, filename);
                                             Log.v("location", myFile.toString());
-                                            MultipartRequest.getInstance().saveProfileAccount(myFile.toString(), filename + ".pdf",details, bundle, getApplicationContext());
+                                            MultipartRequest.getInstance().savePDFFile(myFile.toString(), filename + ".pdf",details, bundle, getApplicationContext());
+
+                                            if (!settings.getKeepcopyofimages()) {
+                                                deleteselectedimages(imagesEncodedList);
+                                            }
+
                                         } catch (FileNotFoundException e) {
                                             Log.v("Error", "File Not Found");
                                         } catch (DocumentException de) {
@@ -148,11 +140,7 @@ public class addPics extends Activity {
 
                                         }
 
-                                        if (!settings.getInstance().getKeepcopyofimages()) {
-                                            deleteselectedimages(imagesEncodedList);
-                                        }
-                                        viewPdf(myFile);
-
+                                    viewPdf(myFile);
                                 }})
 
                             .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
@@ -170,7 +158,7 @@ public class addPics extends Activity {
                     else{
                         Toast.makeText(this,"Please fill the required fields",Toast.LENGTH_SHORT).show();
                     }
-                }
+
             }
 
         }
@@ -246,10 +234,11 @@ public class addPics extends Activity {
 
     private boolean isAllFilled(){
 
-        yearString= yearInput.getText().toString().trim();
-        examString= examInput.getText().toString().trim();
-        remarkString= remarkInput.getText().toString().trim();
-        subjectString= subjectInput.getText().toString().trim();
+        yearString= getTrimmedData(yearInput);
+        examString= getTrimmedData(examInput);
+        remarkString= getTrimmedData(remarkInput);
+        subjectString= getTrimmedData(subjectInput);
+        nameString = getTrimmedData(nameInput);
 
         if(yearString!=null && examString!=null && subjectString!=null){
             details.putString("year",yearString);
@@ -257,6 +246,7 @@ public class addPics extends Activity {
             details.putString("subject",subjectString);
             if(remarkString!=null){
                 details.putString("remark",remarkString);
+                details.putString("name",nameString);
             }
             return true;
         }

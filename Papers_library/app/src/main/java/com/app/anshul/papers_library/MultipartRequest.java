@@ -40,7 +40,7 @@ public class MultipartRequest {
         return instance;
     }
 
-    public void saveProfileAccount(final String address, final String pdffilename, final Bundle details , final Bundle bundle, final Context context) {
+    public void savePDFFile(final String address, final String pdffilename, final Bundle details , final Bundle bundle, final Context context) {
 
         String url = "http://192.168.0.104/upload.php";
         VolleyMultipartRequest multipartRequest = new VolleyMultipartRequest(Request.Method.POST, url, new Response.Listener<NetworkResponse>() {
@@ -56,6 +56,7 @@ public class MultipartRequest {
 
                     Log.i("status", status);
                     Log.i("Messsage", message);
+
                     Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
 
                 } catch (JSONException e) {

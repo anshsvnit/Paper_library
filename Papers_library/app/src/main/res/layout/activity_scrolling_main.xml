@@ -7,6 +7,23 @@
     android:fitsSystemWindows="true"
     tools:context="com.app.anshul.papers_library.ScrollingMainActivity">
 
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabfind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@drawable/icon"
+        android:layout_gravity="bottom|right"
+        app:backgroundTint="@android:color/holo_blue_light" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@android:drawable/ic_input_add"
+        android:layout_gravity="top|right" />
+
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
@@ -16,22 +33,5 @@
 
 
     </android.support.design.widget.AppBarLayout>
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fabfind"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/fab_margin"
-        android:src="@android:drawable/ic_input_add" />
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/floatingActionButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/fab_margin"
-        android:src="@android:drawable/ic_input_add"
-        app:layout_anchorGravity="bottom|right"
-        app:layout_anchor="@+id/app_bar"
-        android:layout_gravity="top|right" />
 
 </android.support.design.widget.CoordinatorLayout>

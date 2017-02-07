@@ -17,7 +17,7 @@ import android.widget.Button;
 
 public class ScrollingMainActivity extends AppCompatActivity {
 
-
+    private static final String ACTIVITY_ADD_VIEW_PAPER = "activity_add_qpaper";
     private DialogFragment addNewQPaper;
     //FloatingActionButton fabAddQPaper = (FloatingActionButton) findViewById(R.id.fab);
 
@@ -40,7 +40,7 @@ public class ScrollingMainActivity extends AppCompatActivity {
                 Bundle button_selection = new Bundle();
                 button_selection.putInt("addOrViewButtonSelection", 0);
                 addNewQPaper.setArguments(button_selection);
-                addNewQPaper.show(fragmentManager, "activity_add_qpaper");
+                addNewQPaper.show(fragmentManager, ACTIVITY_ADD_VIEW_PAPER);
 
             }
         });
@@ -53,7 +53,7 @@ public class ScrollingMainActivity extends AppCompatActivity {
                 Bundle button_selection = new Bundle();
                 button_selection.putInt("addOrViewButtonSelection", 1);
                 addNewQPaper.setArguments(button_selection);
-                addNewQPaper.show(fragmentManager, "activity_add_qpaper");
+                addNewQPaper.show(fragmentManager, ACTIVITY_ADD_VIEW_PAPER);
             }
         });
     }

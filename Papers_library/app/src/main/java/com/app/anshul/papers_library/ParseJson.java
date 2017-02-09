@@ -16,12 +16,23 @@ public class ParseJson {
     public static ArrayList<String> years;
     public static ArrayList<String> numbers;
     public static String tableName;
+    public static ArrayList<String> subject;
+    public static ArrayList<String> exam;
+    public static ArrayList<String> remark;
+    public static ArrayList<String> fileLocation;
+    public static String YEAR;
 
     public static final String JSON_ARRAY = "data";
     public static final String YEAR_ARRAY = "result";
     public static final String TABLE_DETAIL_ARRAY = "table_details";
     public static final String KEY_YEAR = "year";
+    public static final String KEY_SUBJECT = "subject";
+    public static final String KEY_EXAM = "exam";
+    public static final String KEY_REMARK = "Remarks";
+    public static final String KEY_LOCATION = "file_location";
+
     public static final String KEY_NUMBERS = "count";
+    public static final String JSON_ARRAY_PAPERS = "data";
 
     private JSONArray dataArray = null,yearArray = null;
     private JSONObject dataObject = null;
@@ -54,5 +65,31 @@ public class ParseJson {
             e.printStackTrace();
         }
     }
+
+    protected void parseJSONPapers(String yearSelected){
+        JSONObject jsonObject=null;
+        subject = new ArrayList<String>();
+        exam = new ArrayList<String>();
+        remark = new ArrayList<String>();
+        fileLocation = new ArrayList<String>();
+
+        try {
+            jsonObject = new JSONObject(json);
+            dataArray = jsonObject.getJSONArray(JSON_ARRAY_PAPERS);
+            Log.v("data in Array",dataArray.toString());
+
+            for(int i=0;i<dataArray.length();i++){
+                JSONObject jo = dataArray.getJSONObject(i);
+                subject.add(jo.getString(KEY_SUBJECT));
+                exam.add(jo.getString(KEY_EXAM));
+                remark.add(jo.getString(KEY_REMARK));
+                fileLocation.add(jo.getString(KEY_LOCATION));
+                YEAR = yearSelected;
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
 

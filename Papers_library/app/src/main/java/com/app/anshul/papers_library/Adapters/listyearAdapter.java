@@ -3,6 +3,7 @@ package com.app.anshul.papers_library.Adapters;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.app.anshul.papers_library.MultipartRequest;
+import com.app.anshul.papers_library.ParseJson;
 import com.app.anshul.papers_library.R;
 import com.app.anshul.papers_library.papersList;
 
@@ -60,6 +63,17 @@ public class listyearAdapter extends RecyclerView.Adapter<listyearAdapter.listye
             super(v);
             yearView =  (TextView) v.findViewById(R.id.year);
             countView = (TextView) v.findViewById(R.id.count);
+
+            v.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Bundle bundle = new Bundle();
+                    bundle.putString("table",ParseJson.tableName);
+                    bundle.putString("year",yearView.getText().toString().trim());
+                    MultipartRequest.getInstance().getPapersList(bundle,v.getContext());
+                }
+            });
+
         }
     }
 }

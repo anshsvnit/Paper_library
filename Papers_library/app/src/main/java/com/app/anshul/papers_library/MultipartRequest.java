@@ -183,13 +183,10 @@ public class MultipartRequest {
                 Log.i("response",resultResponse);
                 try {
                     JSONObject result = new JSONObject(resultResponse);
-                    listyearJson(resultResponse, details);
+                    listyearJson(resultResponse);
                     Intent intent = new Intent(context, yearList.class);
                     intent.putExtra("Values", details);
                     context.startActivity(intent);
-                    Toast.makeText(context, "Getting Year List" , Toast.LENGTH_SHORT).show();
-
-
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -250,12 +247,97 @@ public class MultipartRequest {
         };
         Log.v("sizeg", multipartRequest.toString());
         MyApplication.getInstance().addToReqQueue(multipartRequest);
+        Toast.makeText(context, "Getting Year List" , Toast.LENGTH_SHORT).show();
+
     }
 
-    public void listyearJson(String jsonObject, Bundle bundle){
+
+    public void getPapersList(final Bundle details, final Context context){
+
+        VolleyMultipartRequest multipartRequest = new VolleyMultipartRequest(Request.Method.POST, constantResources.urlsearchpapers, new Response.Listener<NetworkResponse>() {
+            @Override
+            public void onResponse(NetworkResponse response) {
+
+                String resultResponse = new String(response.data);
+                Log.i("response",resultResponse);
+                try {
+                    JSONObject result = new JSONObject(resultResponse);
+                    listPapersJson(resultResponse,details.getString("year"));
+
+                    Intent intent = new Intent(context,papersList.class);
+                    context.startActivity(intent);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        },  new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                NetworkResponse networkResponse = error.networkResponse;
+                String errorMessage = "Unknown error";
+                if (networkResponse == null) {
+                    if (error.getClass().equals(TimeoutError.class)) {
+                        errorMessage = "Request timeout";
+                    } else if (error.getClass().equals(NoConnectionError.class)) {
+                        errorMessage = "Failed to connect server";
+                    }
+                } else {
+                    String result = new String(networkResponse.data);
+                    try {
+                        JSONObject response = new JSONObject(result);
+                        String status = response.getString("status");
+                        String message = response.getString("message");
+
+                        Log.e("Error Status", status);
+                        Log.e("Error Message", message);
+
+                        if (networkResponse.statusCode == 404) {
+                            errorMessage = "Resource not found";
+                        } else if (networkResponse.statusCode == 401) {
+                            errorMessage = message + " Please login again";
+                        } else if (networkResponse.statusCode == 400) {
+                            errorMessage = message + " Check your inputs";
+                        } else if (networkResponse.statusCode == 500) {
+                            errorMessage = message + " Something is getting wrong";
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+                Log.i("Error", errorMessage);
+                Toast.makeText(context, errorMessage, Toast.LENGTH_SHORT).show();
+
+                error.printStackTrace();
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<>();
+                params.put("table", details.getString("table"));
+                params.put("year",details.getString("year"));
+                return params;
+            }
+        };
+        Log.v("sizeg", multipartRequest.toString());
+        MyApplication.getInstance().addToReqQueue(multipartRequest);
+        Toast.makeText(context, "Fetching Available Papers" , Toast.LENGTH_SHORT).show();
+
+    }
+
+
+    public void listyearJson(String jsonObject){
         ParseJson pj = new ParseJson(jsonObject);
         pj.parseJSON();
         return;
 
     }
+
+    public void listPapersJson(String jsonObject, String yearSelected){
+        ParseJson pj = new ParseJson(jsonObject);
+        pj.parseJSONPapers(yearSelected);
+        return;
+
+    }
+
 }

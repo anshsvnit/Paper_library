@@ -73,7 +73,6 @@ public class listyearAdapter extends RecyclerView.Adapter<listyearAdapter.listye
                     MultipartRequest.getInstance().getPapersList(bundle,v.getContext());
                 }
             });
-
         }
     }
 }

@@ -4,11 +4,11 @@
 require 'database.php';
 $db_name = "Papers_library";
 $db = mysqli_connect($host,$user,$password,$db_name);
-if (mysqli_connect_errno($db)) 
-  { 
+if (mysqli_connect_errno($db))
+  {
   	$response = 0;
   	$errorstr = "error connecting database";
-  $arrayjson = array('status'=> $response,
+    $arrayjson = array('status'=> $response,
             'message' => $errorstr);
 
 
@@ -38,7 +38,7 @@ $result_table = mysqli_query($db,$sql_table_details);
 
 $result = array();
 while($row = mysqli_fetch_array($result_table,MYSQLI_NUM)){
-  
+
     array_push($result,
     array('year'=>$row[0],
     'count'=>$row[1]
@@ -53,6 +53,6 @@ $data = array();
 array_push($data,array('table_details'=>$table_details,'result'=>$result));
 
  echo json_encode(array("data"=>$data));
- 
+
   mysqli_close($db);
 ?>

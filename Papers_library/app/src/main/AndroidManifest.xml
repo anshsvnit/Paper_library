@@ -40,6 +40,8 @@
         <activity android:name=".mainActivityImageLoader" />
         <activity android:name=".yearList" />
         <activity android:name=".papersList"></activity>
+        <activity android:name=".pdfRenderer"/>
+        <activity android:name=".DownloadManagerActivity"/>
     </application>
 
 </manifest>

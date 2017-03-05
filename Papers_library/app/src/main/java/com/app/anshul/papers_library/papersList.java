@@ -31,7 +31,7 @@ public class papersList extends AppCompatActivity {
         Log.v("subject array",ParseJson.subject.toString());
         Log.v("selected year",ParseJson.YEAR);
 
-        paperListAdapter ca = new paperListAdapter(ParseJson.subject,ParseJson.exam,ParseJson.remark,ParseJson.fileLocation,ParseJson.YEAR);
+        paperListAdapter ca = new paperListAdapter(ParseJson.subject,ParseJson.exam,ParseJson.remark,ParseJson.YEAR);
         recList.setAdapter(ca);
         frame.addView(recList);
     }

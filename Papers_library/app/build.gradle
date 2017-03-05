@@ -4,6 +4,10 @@ android {
     compileSdkVersion 23
     buildToolsVersion "24.0.0"
 
+    dexOptions {
+        jumboMode true
+    }
+
     defaultConfig {
         applicationId "com.app.anshul.papers_library"
         minSdkVersion 19
@@ -31,10 +35,11 @@ dependencies {
     compile 'com.lowagie:itext-rtf:2.1.7'
     compile 'com.itextpdf:itext-parent:1.0.0'
     compile 'com.itextpdf:itextg:5.5.10'
-    compile 'com.itextpdf:itextg:5.5.10'
     compile 'net.gotev:uploadservice:2.1'
     compile 'org.httpobjects.multipart:httpobjects-multipart:0.13.0'
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
     compile 'com.android.support:recyclerview-v7:23.2.0'
     compile 'com.android.support:cardview-v7:23.2.0'
+    compile files('/home/anshul/Downloads/Papers_library/libraries/PdfViewer.jar')
+    compile 'com.github.barteksc:android-pdf-viewer:2.4.0'
 }

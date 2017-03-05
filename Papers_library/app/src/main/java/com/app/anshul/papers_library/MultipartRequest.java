@@ -117,7 +117,7 @@ public class MultipartRequest {
                     params.put("year",bundle.getString("year"));
                     params.put("semester",bundle.getString("sem"));
                     params.put("department",bundle.getString("dept"));
-
+                    params.put("filename",pdffilename);
                 try{
                     params.put("remark", details.getString("remark"));
                 }
@@ -324,7 +324,6 @@ public class MultipartRequest {
         Toast.makeText(context, "Fetching Available Papers" , Toast.LENGTH_SHORT).show();
 
     }
-
 
     public void listyearJson(String jsonObject){
         ParseJson pj = new ParseJson(jsonObject);

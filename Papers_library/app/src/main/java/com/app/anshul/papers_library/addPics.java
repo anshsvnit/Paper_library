@@ -19,6 +19,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,7 +39,8 @@ import static com.app.anshul.papers_library.controllerAddPics.getTrimmedData;
 
 public class addPics extends Activity {
 
-    EditText yearInput,subjectInput,examInput,remarkInput,nameInput,setInput;
+    EditText subjectInput,remarkInput,nameInput,setInput;
+    Spinner examInput,yearInput;
     LinearLayout layoutcourse,layoutyear,layoutdept,layoutsem,layoutset;
     String yearString,examString,remarkString,subjectString,nameString;
     CheckBox hasSet;
@@ -46,11 +48,7 @@ public class addPics extends Activity {
     Button upload,takePics;
     private static final int RESULT_LOAD_IMAGE=1;
     public final int RESULT_CAM = 1001;
-    ArrayList<Uri> mArrayUri = new ArrayList<Uri>();
-    ClipData.Item item;
-    String imageEncoded;
     List<String> imagesEncodedList;
-    Uri uri;
     String filename;
     File myFile;
     public static addPics mInstance;
@@ -67,9 +65,9 @@ public class addPics extends Activity {
         bundle = getIntent().getExtras().getBundle("Values");
         upload = (Button) findViewById( R.id.galleryupload);
         takePics = (Button) findViewById(R.id.takepictures);
-        yearInput = (EditText)findViewById(R.id.yearofexaminput);
+        yearInput = (Spinner) findViewById(R.id.yearofexaminput);
         subjectInput = (EditText)  findViewById(R.id.subjectinput);
-        examInput = (EditText) findViewById(R.id.examinput);
+        examInput = (Spinner) findViewById(R.id.examinput);
         remarkInput = (EditText) findViewById(R.id.remarkinput);
         nameInput = (EditText) findViewById(R.id.nameinput);
         details = new Bundle();
@@ -85,7 +83,7 @@ public class addPics extends Activity {
             }
         });
 
-             setupYearTview(bundle);
+             setupYearTview();
 
 
         upload.setOnClickListener(new View.OnClickListener() {
@@ -132,7 +130,7 @@ public class addPics extends Activity {
 
                                         try {
                                             filename = bundle.getString("course")+bundle.getString("year")+bundle.getString("dept")+bundle.getInt("sem")+ details.getString("subject")+details.getString("yearofExam")+details.getString("exam");
-
+                                            filename = filename.replaceAll("\\s+","");
                                             myFile = makepdf.getInstance().createPdf(imagesEncodedList, filename);
 
                                             Log.v("location", myFile.toString());
@@ -201,7 +199,7 @@ public class addPics extends Activity {
         setInput = (EditText) findViewById(R.id.setinput);
     }
 
-    public void setupYearTview( Bundle bundle){
+    public void setupYearTview(){
         layoutcourse.setVisibility(View.VISIBLE);
         layoutyear.setVisibility(View.VISIBLE);
         layoutdept.setVisibility(View.VISIBLE);
@@ -242,8 +240,8 @@ public class addPics extends Activity {
 
     private boolean isAllFilled(){
 
-        yearString= getTrimmedData(yearInput);
-        examString= getTrimmedData(examInput);
+        yearString= yearInput.getSelectedItem().toString();
+        examString= examInput.getSelectedItem().toString();
         remarkString= getTrimmedData(remarkInput);
         subjectString= getTrimmedData(subjectInput);
         nameString = getTrimmedData(nameInput);

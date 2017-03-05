@@ -1,0 +1,2 @@
+sudo chown root:root /opt
+sudo chmod 0755 /opt

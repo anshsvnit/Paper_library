@@ -83,6 +83,7 @@ public class ParseJson {
                 subject.add(jo.getString(KEY_SUBJECT));
                 exam.add(jo.getString(KEY_EXAM));
                 remark.add(jo.getString(KEY_REMARK));
+                Log.v("Received location",jo.getString(KEY_LOCATION));
                 fileLocation.add(jo.getString(KEY_LOCATION));
                 YEAR = yearSelected;
             }

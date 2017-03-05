@@ -31,7 +31,7 @@ CREATE TABLE `appchem3` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -46,7 +46,7 @@ CREATE TABLE `appchem4` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -61,7 +61,7 @@ CREATE TABLE `appchem5` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -76,7 +76,7 @@ CREATE TABLE `appchem6` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -91,7 +91,7 @@ CREATE TABLE `appchem7` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -106,7 +106,7 @@ CREATE TABLE `appchem8` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -121,7 +121,7 @@ CREATE TABLE `appchem9` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -136,7 +136,7 @@ CREATE TABLE `appchem10` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -151,7 +151,7 @@ CREATE TABLE `appmath3` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -166,7 +166,7 @@ CREATE TABLE `appmath4` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -181,7 +181,7 @@ CREATE TABLE `appmath5` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -196,7 +196,7 @@ CREATE TABLE `appmath6` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -211,7 +211,7 @@ CREATE TABLE `appmath7` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -226,7 +226,7 @@ CREATE TABLE `appmath8` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -241,7 +241,7 @@ CREATE TABLE `appmath9` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -256,7 +256,7 @@ CREATE TABLE `appmath10` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -271,7 +271,7 @@ CREATE TABLE `appphy3` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -286,7 +286,7 @@ CREATE TABLE `appphy4` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -301,7 +301,7 @@ CREATE TABLE `appphy5` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -316,7 +316,7 @@ CREATE TABLE `appphy6` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -331,7 +331,7 @@ CREATE TABLE `appphy7` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -346,7 +346,7 @@ CREATE TABLE `appphy8` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -361,7 +361,7 @@ CREATE TABLE `appphy9` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -376,7 +376,7 @@ CREATE TABLE `appphy10` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -405,7 +405,7 @@ CREATE TABLE `chem2` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -420,7 +420,7 @@ CREATE TABLE `chem3` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -435,7 +435,7 @@ CREATE TABLE `chem4` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -450,7 +450,7 @@ CREATE TABLE `chem5` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -465,7 +465,7 @@ CREATE TABLE `chem6` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -480,7 +480,7 @@ CREATE TABLE `chem7` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -495,7 +495,7 @@ CREATE TABLE `chem8` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -510,7 +510,7 @@ CREATE TABLE `civil2` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -525,7 +525,7 @@ CREATE TABLE `civil3` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -540,7 +540,7 @@ CREATE TABLE `civil4` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -555,7 +555,7 @@ CREATE TABLE `civil5` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -570,7 +570,7 @@ CREATE TABLE `civil6` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -585,7 +585,7 @@ CREATE TABLE `civil7` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -600,7 +600,7 @@ CREATE TABLE `civil8` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -615,7 +615,7 @@ CREATE TABLE `comps1` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -630,7 +630,7 @@ CREATE TABLE `comps2` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -645,7 +645,7 @@ CREATE TABLE `comps3` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -660,7 +660,7 @@ CREATE TABLE `comps4` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -675,7 +675,7 @@ CREATE TABLE `comps5` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -690,7 +690,7 @@ CREATE TABLE `comps6` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -705,7 +705,7 @@ CREATE TABLE `comps7` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -720,7 +720,7 @@ CREATE TABLE `comps8` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -735,7 +735,7 @@ CREATE TABLE `ec2` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -750,7 +750,7 @@ CREATE TABLE `ec3` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -765,7 +765,7 @@ CREATE TABLE `ec4` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -780,7 +780,7 @@ CREATE TABLE `ec5` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -795,7 +795,7 @@ CREATE TABLE `ec6` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -810,7 +810,7 @@ CREATE TABLE `ec7` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -825,7 +825,7 @@ CREATE TABLE `ec8` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -840,7 +840,7 @@ CREATE TABLE `ele2` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -855,7 +855,7 @@ CREATE TABLE `ele3` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -870,7 +870,7 @@ CREATE TABLE `ele4` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -885,7 +885,7 @@ CREATE TABLE `ele5` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -900,7 +900,7 @@ CREATE TABLE `ele6` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -915,7 +915,7 @@ CREATE TABLE `ele7` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -930,7 +930,7 @@ CREATE TABLE `ele8` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -959,7 +959,7 @@ CREATE TABLE `Mchem1` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -974,7 +974,7 @@ CREATE TABLE `Mchem2` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -989,7 +989,7 @@ CREATE TABLE `Mchem3` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1004,7 +1004,7 @@ CREATE TABLE `Mchem4` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1019,7 +1019,7 @@ CREATE TABLE `Mcivil1` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1034,7 +1034,7 @@ CREATE TABLE `Mcivil2` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1049,7 +1049,7 @@ CREATE TABLE `Mcivil3` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1064,7 +1064,7 @@ CREATE TABLE `Mcivil4` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1079,7 +1079,7 @@ CREATE TABLE `Mcomps1` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1094,7 +1094,7 @@ CREATE TABLE `Mcomps2` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1109,7 +1109,7 @@ CREATE TABLE `Mcomps3` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1124,7 +1124,7 @@ CREATE TABLE `Mcomps4` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1139,7 +1139,7 @@ CREATE TABLE `Mec1` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1154,7 +1154,7 @@ CREATE TABLE `Mec2` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1169,7 +1169,7 @@ CREATE TABLE `Mec3` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1184,7 +1184,7 @@ CREATE TABLE `Mec4` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1199,7 +1199,7 @@ CREATE TABLE `mech2` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1214,7 +1214,7 @@ CREATE TABLE `mech3` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1229,7 +1229,7 @@ CREATE TABLE `mech4` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1244,7 +1244,7 @@ CREATE TABLE `mech5` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1259,7 +1259,7 @@ CREATE TABLE `mech6` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1274,7 +1274,7 @@ CREATE TABLE `mech7` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1289,7 +1289,7 @@ CREATE TABLE `mech8` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1304,7 +1304,7 @@ CREATE TABLE `Mele1` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1319,7 +1319,7 @@ CREATE TABLE `Mele2` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1334,7 +1334,7 @@ CREATE TABLE `Mele3` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1349,7 +1349,7 @@ CREATE TABLE `Mele4` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1364,7 +1364,7 @@ CREATE TABLE `Mmech1` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1379,7 +1379,7 @@ CREATE TABLE `Mmech2` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1394,7 +1394,7 @@ CREATE TABLE `Mmech3` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1409,7 +1409,7 @@ CREATE TABLE `Mmech4` (
   `subject` varchar(15) NOT NULL,
   `yearofExam` year(4) NOT NULL,
   `exam` varchar(20) NOT NULL,
-  `file_location` varchar(30) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 

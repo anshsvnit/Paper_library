@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.PageSize;
 import com.itextpdf.text.pdf.PdfWriter;
 
 import java.io.File;
@@ -47,8 +48,13 @@ public class makepdf {
 
         Log.v("file",myFile.toString());
 
+        float left = 15;
+        float right = 15;
+        float top = 15;
+        float bottom = 15;
+
         OutputStream output = new FileOutputStream(myFile);
-        Document document = new Document();
+        Document document = new Document(PageSize.A4,left,right,top,bottom);
         PdfWriter.getInstance(document, output);
         document.open();
 
@@ -57,8 +63,8 @@ public class makepdf {
 
                 img = com.itextpdf.text.Image.getInstance(imagesEncodedList.get(i));
 
-                img.scalePercent(90f, 90f);
-                img.setAbsolutePosition(0, 0);
+                img.scaleAbsolute(565,812);
+                img.setAbsolutePosition(15,15);
 
                 document.newPage();
 

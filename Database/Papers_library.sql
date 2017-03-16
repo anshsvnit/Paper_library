@@ -1426,6 +1426,18 @@ CREATE TABLE `M.Sc.` (
   `Department` varchar(50) NOT NULL,
   `Sem_table_name` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+CREATE TABLE `duplicates` ( 
+  `Id` INT(6) NOT NULL AUTO_INCREMENT ,
+  `Year` VARCHAR(30) NOT NULL ,
+  `Semester` VARCHAR(30) NOT NULL ,
+  `Department` VARCHAR(30) NOT NULL ,
+  `subject` VARCHAR(30) NOT NULL ,
+  `yearofExam` VARCHAR(6) NOT NULL ,
+  `exam` VARCHAR(15) NOT NULL ,
+  `file_location` VARCHAR(80) NOT NULL ,
+  `Remarks` VARCHAR(50) NOT NULL , PRIMARY KEY (`Id`)) ENGINE = InnoDB;
 --
 -- Indexes for dumped tables
 --

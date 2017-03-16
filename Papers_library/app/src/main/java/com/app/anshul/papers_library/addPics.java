@@ -39,11 +39,10 @@ import static com.app.anshul.papers_library.controllerAddPics.getTrimmedData;
 
 public class addPics extends Activity {
 
-    EditText subjectInput,remarkInput,nameInput,setInput;
+    EditText subjectInput,remarkInput,nameInput;
     Spinner examInput,yearInput;
-    LinearLayout layoutcourse,layoutyear,layoutdept,layoutsem,layoutset;
+    LinearLayout layoutcourse,layoutyear,layoutdept,layoutsem;
     String yearString,examString,remarkString,subjectString,nameString;
-    CheckBox hasSet;
 
     Button upload,takePics;
     private static final int RESULT_LOAD_IMAGE=1;
@@ -67,24 +66,14 @@ public class addPics extends Activity {
         takePics = (Button) findViewById(R.id.takepictures);
         yearInput = (Spinner) findViewById(R.id.yearofexaminput);
         subjectInput = (EditText)  findViewById(R.id.subjectinput);
-        examInput = (Spinner) findViewById(R.id.examinput);
+        examInput = (Spinner) findViewById(R.id.examInput);
         remarkInput = (EditText) findViewById(R.id.remarkinput);
         nameInput = (EditText) findViewById(R.id.nameinput);
         details = new Bundle();
 
         mcontext = this;
 
-        hasSet.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
-
-                }
-            }
-        });
-
              setupYearTview();
-
 
         upload.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -176,7 +165,8 @@ public class addPics extends Activity {
 
         }
         else if (resultCode == 0 && requestCode== RESULT_CAM){
-            selectImages();
+            Intent intent = new Intent(mcontext, mainActivityImageLoader.class);
+            startActivityForResult(intent,constantResources.IMAGE_LOADER);
         }
 
     }
@@ -194,9 +184,6 @@ public class addPics extends Activity {
         layoutyear = (LinearLayout) findViewById(R.id.layoutyear);
         layoutdept = (LinearLayout) findViewById(R.id.layoutdept);
         layoutsem = (LinearLayout) findViewById(R.id.layoutsemester);
-        layoutset = (LinearLayout) findViewById(R.id.layoutset);
-        hasSet = (CheckBox) findViewById(R.id.hasset);
-        setInput = (EditText) findViewById(R.id.setinput);
     }
 
     public void setupYearTview(){
@@ -211,16 +198,6 @@ public class addPics extends Activity {
         intent.setDataAndType(Uri.fromFile(myFile), "application/pdf");
         intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
         startActivity(intent);
-    }
-
-    public void selectImages(){
-
-        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-
-        intent.setType("image/*");
-        startActivityForResult(Intent.createChooser(intent, "Select Picture"), RESULT_LOAD_IMAGE);
     }
 
     private void deleteselectedimages(List<String> list) {

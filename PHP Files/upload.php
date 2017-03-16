@@ -42,7 +42,7 @@ $sql_query_check_duplicate = mysqli_query($db,$sql_check_duplicate);
 $result = mysqli_fetch_array($sql_query_check_duplicate,MYSQLI_NUM);
 if($result[0]>0){
 
-  $sql_insert_table = "INSERT INTO `duplicates`(`Year`,`Semester`,`Department`,`subject`,`yearofExam`,`exam`,`file_location`) VALUES ('$year', '$sem', '$dept', '$subject','$yearofExam','$exam','')";
+  $sql_insert_table = "INSERT INTO `duplicates`(`Year`,`Semester`,`Department`,`subject`,`yearofExam`,`exam`,`file_location`) VALUES ('$year', '$sem', '$dept', '$subject','$yearofExam','$exam','$file_location')";
   $sql_insert_table_query = mysqli_query($db,$sql_insert_table);
   if($sql_insert_table_query)
   {
@@ -64,7 +64,15 @@ if($result[0]>0){
 }
 
 else{
-$sql_insert_table = "INSERT INTO `$table_name`(`subject`,`yearofExam`,`exam`,`file_location`) VALUES ('$subject', '$yearofExam', '$exam', '$file_location')";
+
+if(isset($_POST['remark'])){
+  $remark = $_POST['remark'];
+}
+else{
+  $remark = "";
+}
+
+$sql_insert_table = "INSERT INTO `$table_name`(`subject`,`yearofExam`,`exam`,`file_location`,`Remarks`) VALUES ('$subject', '$yearofExam', '$exam', '$file_location','$remark')";
 $sql_insert_table_query = mysqli_query($db,$sql_insert_table);
 if($sql_insert_table_query)
 {

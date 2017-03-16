@@ -20,8 +20,6 @@ public class papersList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_papers_list);
 
-        //MultipartRequest.getInstance().
-
         frame = (FrameLayout) findViewById(R.id.framereclview);
         recList = new RecyclerView(this);
         recList.setHasFixedSize(true);

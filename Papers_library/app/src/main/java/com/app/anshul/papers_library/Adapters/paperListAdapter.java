@@ -21,7 +21,6 @@ public class paperListAdapter extends RecyclerView.Adapter<paperListAdapter.pape
     ArrayList<String> subjectList = new ArrayList<String>();
     ArrayList<String> examList = new ArrayList<String>();
     ArrayList<String> remarkList = new ArrayList<String>();
-    ArrayList<String> locationList = new ArrayList<String>();
     String year;
 
     public paperListAdapter(ArrayList<String> subjectList, ArrayList<String> examList, ArrayList<String> remarkList,String yearSelected) {
@@ -44,7 +43,7 @@ public class paperListAdapter extends RecyclerView.Adapter<paperListAdapter.pape
         paperListViewHolder.examView.setText(examText);
         String remarkText = remarkList.get(i);
         paperListViewHolder.remarkView.setText(remarkText);
-        paperListViewHolder.examView.setText(year);
+        paperListViewHolder.yearView.setText(year);
 
     }
 

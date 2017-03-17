@@ -33,7 +33,7 @@ $table_name = $table[0];
 //echo $table[0];
 
 
-$sql_table_details = "SELECT `yearofExam`, COUNT(*) FROM `$table_name` GROUP BY `yearofExam`";
+$sql_table_details = "SELECT `yearofExam`, COUNT(*) FROM `$table_name` WHERE `accepted`= 'Y' GROUP BY `yearofExam`";
 $result_table = mysqli_query($db,$sql_table_details);
 
 $result = array();

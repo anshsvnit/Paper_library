@@ -19,14 +19,14 @@ public class controllerAddPaper {
     private  static int selectedSem = 0;
     private  static String selectedDeptName;
 
-    public static void setVisibilityyearListLayout(LinearLayout yearListLayout){
+    public static void setVisibilityyearListLayout(LinearLayout mListLayout){
 
-        if (yearListLayout.getVisibility() == View.GONE) {
-            yearListLayout.setVisibility(LinearLayout.VISIBLE);
+        if (mListLayout.getVisibility() == View.GONE) {
+            mListLayout.setVisibility(LinearLayout.VISIBLE);
         }
 
-        for (int i = 0; i < yearListLayout.getChildCount(); i++) {
-            View child = yearListLayout.getChildAt(i);
+        for (int i = 0; i < mListLayout.getChildCount(); i++) {
+            View child = mListLayout.getChildAt(i);
             child.setEnabled(false);
         }
     }

@@ -1,0 +1,25 @@
+remove lampp
+sudo rm -r /opt/lampp
+
+
+anshul@anshul-HP-15-Notebook-PC:~$ cd ../..
+anshul@anshul-HP-15-Notebook-PC:/$ ls -l /opt
+total 16
+drwxr-xr-x  7 root root 4096 Apr 25  2016 android-studio
+drwxr-xr-x  3 root root 4096 May 17  2016 google
+drwxr-xr-x 30 root root 4096 Mar 16 23:34 lampp
+drwxr-xr-x  5 root root 4096 Jul 24  2016 sublime_text_2
+anshul@anshul-HP-15-Notebook-PC:/$ ^C
+anshul@anshul-HP-15-Notebook-PC:/$ 
+
+
+anshul@anshul-HP-15-Notebook-PC:/$ ls -ld /opt
+drwxr-xr-x 6 root root 4096 Mar 16 23:31 /opt
+anshul@anshul-HP-15-Notebook-PC:/$ ^C
+anshul@anshul-HP-15-Notebook-PC:/$ 
+
+
+
+
+
+

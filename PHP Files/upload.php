@@ -26,17 +26,12 @@ $course = $_POST['course'];
   $file_location = $_POST['filename'];
 
 $sql_get_table = "SELECT `Sem_table_name` FROM `$course` WHERE `Year` = '$year' AND `Semester` = '$sem' AND `Department` = '$dept'";
-//$sql_table = "SELECT `Sem_table_name` FROM `$course` WHERE `Year` = '$year' AND `Semester` = '$sem' AND `Department` = '$dept'";
+
 $result_table = mysqli_query($db,$sql_get_table);
 $table = mysqli_fetch_array($result_table, MYSQLI_NUM);
 $table_name = $table[0];
-/*echo $table_name;
-echo "Insertion details\n";
-echo $subject;
-echo $yearofExam;
-echo $exam;
-echo $targetPath;
-echo "\n";*/
+
+
 $sql_check_duplicate = "SELECT COUNT(*) FROM `$table_name` WHERE `subject`= '$subject' AND `yearofExam`= '$yearofExam' AND `exam`= '$exam' ";
 $sql_query_check_duplicate = mysqli_query($db,$sql_check_duplicate);
 $result = mysqli_fetch_array($sql_query_check_duplicate,MYSQLI_NUM);
@@ -72,7 +67,7 @@ else{
   $remark = "";
 }
 
-$sql_insert_table = "INSERT INTO `$table_name`(`subject`,`yearofExam`,`exam`,`file_location`,`Remarks`) VALUES ('$subject', '$yearofExam', '$exam', '$file_location','$remark')";
+$sql_insert_table = "INSERT INTO `$table_name`(`subject`,`yearofExam`,`exam`,`file_location`,`Remarks`,`accepted`) VALUES ('$subject', '$yearofExam', '$exam', '$file_location','$remark','N')";
 $sql_insert_table_query = mysqli_query($db,$sql_insert_table);
 if($sql_insert_table_query)
 {

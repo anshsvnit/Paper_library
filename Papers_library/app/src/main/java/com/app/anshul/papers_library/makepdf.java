@@ -55,8 +55,10 @@ public class makepdf {
 
         OutputStream output = new FileOutputStream(myFile);
         Document document = new Document(PageSize.A4,left,right,top,bottom);
-        PdfWriter.getInstance(document, output);
+        PdfWriter.getInstance(document, output).setCompressionLevel(9);
+
         document.open();
+        //document.setCompressionLevel(9);
 
         try {
             for(int i=0;i<imagesEncodedList.size();i++) {

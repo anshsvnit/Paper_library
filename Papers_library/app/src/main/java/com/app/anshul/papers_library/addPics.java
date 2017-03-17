@@ -62,6 +62,8 @@ public class addPics extends Activity {
 
         initialize();
         bundle = getIntent().getExtras().getBundle("Values");
+        givevalues(bundle);
+
         upload = (Button) findViewById( R.id.galleryupload);
         takePics = (Button) findViewById(R.id.takepictures);
         yearInput = (Spinner) findViewById(R.id.yearofexaminput);
@@ -236,6 +238,13 @@ public class addPics extends Activity {
         else{
             return false;
         }
+    }
+
+    public void givevalues(Bundle bundle){
+        Log.v("year",bundle.getString("year"));
+        Log.v("dept",bundle.getString("dept"));
+        Log.v("course",bundle.getString("course"));
+        Log.v("sem",bundle.getString("sem"));
     }
 
 }

@@ -21,6 +21,66 @@ SET time_zone = "+00:00";
 --
 
 -- --------------------------------------------------------
+--
+-- Table structure for table `btech1draw`
+--
+
+CREATE TABLE `btech1draw` (
+  `id` int(11) NOT NULL,
+  `subject` varchar(15) NOT NULL,
+  `yearofExam` year(4) NOT NULL,
+  `exam` varchar(20) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
+  `Remarks` varchar(30) NOT NULL,
+  `Uploader` varchar(30) NOT NULL,
+  `accepted` varchar(2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `btech1work`
+--
+
+CREATE TABLE `btech1work` (
+  `id` int(11) NOT NULL,
+  `subject` varchar(15) NOT NULL,
+  `yearofExam` year(4) NOT NULL,
+  `exam` varchar(20) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
+  `Remarks` varchar(30) NOT NULL,
+  `Uploader` varchar(30) NOT NULL,
+  `accepted` varchar(2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `msc1sem1`
+--
+
+CREATE TABLE `msc1sem1` (
+  `id` int(11) NOT NULL,
+  `subject` varchar(15) NOT NULL,
+  `yearofExam` year(4) NOT NULL,
+  `exam` varchar(20) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
+  `Remarks` varchar(30) NOT NULL,
+  `Uploader` varchar(30) NOT NULL,
+  `accepted` varchar(2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `msc1sem1`
+--
+
+CREATE TABLE `msc1sem2` (
+  `id` int(11) NOT NULL,
+  `subject` varchar(15) NOT NULL,
+  `yearofExam` year(4) NOT NULL,
+  `exam` varchar(20) NOT NULL,
+  `file_location` varchar(60) NOT NULL,
+  `Remarks` varchar(30) NOT NULL,
+  `Uploader` varchar(30) NOT NULL,
+  `accepted` varchar(2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 --
 -- Table structure for table `appchem3`
@@ -33,8 +93,10 @@ CREATE TABLE `appchem3` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-  `Uploader` varchar(30) NOT NULL
+  `Uploader` varchar(30) NOT NULL,
+  `accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -49,8 +111,10 @@ CREATE TABLE `appchem4` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-  `Uploader` varchar(30) NOT NULL
+  `Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -66,8 +130,10 @@ CREATE TABLE `appchem5` (
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
   `Uploader` varchar(30) NOT NULL
-
+,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -82,8 +148,10 @@ CREATE TABLE `appchem6` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-  `Uploader` varchar(30) NOT NULL
+  `Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -98,8 +166,10 @@ CREATE TABLE `appchem7` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-  `Uploader` varchar(30) NOT NULL
+  `Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -114,8 +184,10 @@ CREATE TABLE `appchem8` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-  `Uploader` varchar(30) NOT NULL
+  `Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -130,8 +202,10 @@ CREATE TABLE `appchem9` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-  `Uploader` varchar(30) NOT NULL
+  `Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -146,8 +220,10 @@ CREATE TABLE `appchem10` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-  `Uploader` varchar(30) NOT NULL
+  `Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -162,8 +238,10 @@ CREATE TABLE `appmath3` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-  `Uploader` varchar(30) NOT NULL
+  `Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -178,8 +256,10 @@ CREATE TABLE `appmath4` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-  `Uploader` varchar(30) NOT NULL
+  `Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -194,8 +274,10 @@ CREATE TABLE `appmath5` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-  `Uploader` varchar(30) NOT NULL
+  `Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -210,8 +292,10 @@ CREATE TABLE `appmath6` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-  `Uploader` varchar(30) NOT NULL
+  `Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -226,8 +310,10 @@ CREATE TABLE `appmath7` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-  `Uploader` varchar(30) NOT NULL
+  `Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -242,8 +328,10 @@ CREATE TABLE `appmath8` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-  `Uploader` varchar(30) NOT NULL
+  `Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -258,8 +346,10 @@ CREATE TABLE `appmath9` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-  `Uploader` varchar(30) NOT NULL
+  `Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -274,8 +364,10 @@ CREATE TABLE `appmath10` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-  `Uploader` varchar(30) NOT NULL
+  `Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -290,8 +382,10 @@ CREATE TABLE `appphy3` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-  `Uploader` varchar(30) NOT NULL
+  `Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -306,8 +400,10 @@ CREATE TABLE `appphy4` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-  `Uploader` varchar(30) NOT NULL
+  `Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -322,8 +418,10 @@ CREATE TABLE `appphy5` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-  `Uploader` varchar(30) NOT NULL
+  `Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -338,8 +436,10 @@ CREATE TABLE `appphy6` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-  `Uploader` varchar(30) NOT NULL
+  `Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -354,8 +454,10 @@ CREATE TABLE `appphy7` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-  `Uploader` varchar(30) NOT NULL
+  `Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -370,8 +472,10 @@ CREATE TABLE `appphy8` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-  `Uploader` varchar(30) NOT NULL
+  `Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -386,8 +490,10 @@ CREATE TABLE `appphy9` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-  `Uploader` varchar(30) NOT NULL
+  `Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -402,8 +508,10 @@ CREATE TABLE `appphy10` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-  `Uploader` varchar(30) NOT NULL
+  `Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -432,8 +540,10 @@ CREATE TABLE `chem2` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-  `Uploader` varchar(30) NOT NULL
+  `Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -448,8 +558,10 @@ CREATE TABLE `chem3` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-  `Uploader` varchar(30) NOT NULL
+  `Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -464,8 +576,10 @@ CREATE TABLE `chem4` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -480,8 +594,10 @@ CREATE TABLE `chem5` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -496,8 +612,10 @@ CREATE TABLE `chem6` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -512,8 +630,10 @@ CREATE TABLE `chem7` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -528,8 +648,10 @@ CREATE TABLE `chem8` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -544,8 +666,10 @@ CREATE TABLE `civil2` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -560,8 +684,10 @@ CREATE TABLE `civil3` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -576,8 +702,10 @@ CREATE TABLE `civil4` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -592,8 +720,10 @@ CREATE TABLE `civil5` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -608,8 +738,10 @@ CREATE TABLE `civil6` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -624,8 +756,10 @@ CREATE TABLE `civil7` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -640,8 +774,10 @@ CREATE TABLE `civil8` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -656,8 +792,10 @@ CREATE TABLE `comps1` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -672,8 +810,10 @@ CREATE TABLE `comps2` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -688,8 +828,10 @@ CREATE TABLE `comps3` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -704,8 +846,10 @@ CREATE TABLE `comps4` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -720,8 +864,10 @@ CREATE TABLE `comps5` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -736,8 +882,10 @@ CREATE TABLE `comps6` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -752,8 +900,10 @@ CREATE TABLE `comps7` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -768,8 +918,10 @@ CREATE TABLE `comps8` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -784,8 +936,10 @@ CREATE TABLE `ec2` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -800,8 +954,10 @@ CREATE TABLE `ec3` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -816,8 +972,10 @@ CREATE TABLE `ec4` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -832,8 +990,10 @@ CREATE TABLE `ec5` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -848,8 +1008,10 @@ CREATE TABLE `ec6` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -864,8 +1026,10 @@ CREATE TABLE `ec7` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -880,8 +1044,10 @@ CREATE TABLE `ec8` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -896,8 +1062,10 @@ CREATE TABLE `ele2` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -912,8 +1080,10 @@ CREATE TABLE `ele3` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -928,8 +1098,10 @@ CREATE TABLE `ele4` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -944,8 +1116,10 @@ CREATE TABLE `ele5` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -960,8 +1134,10 @@ CREATE TABLE `ele6` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -976,8 +1152,10 @@ CREATE TABLE `ele7` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -992,8 +1170,10 @@ CREATE TABLE `ele8` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -1022,8 +1202,10 @@ CREATE TABLE `Mchem1` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -1038,8 +1220,10 @@ CREATE TABLE `Mchem2` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -1054,8 +1238,10 @@ CREATE TABLE `Mchem3` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -1070,8 +1256,10 @@ CREATE TABLE `Mchem4` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -1086,8 +1274,10 @@ CREATE TABLE `Mcivil1` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -1102,8 +1292,10 @@ CREATE TABLE `Mcivil2` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -1118,8 +1310,10 @@ CREATE TABLE `Mcivil3` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -1134,8 +1328,10 @@ CREATE TABLE `Mcivil4` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -1150,8 +1346,10 @@ CREATE TABLE `Mcomps1` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -1166,8 +1364,10 @@ CREATE TABLE `Mcomps2` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -1182,8 +1382,10 @@ CREATE TABLE `Mcomps3` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -1198,8 +1400,10 @@ CREATE TABLE `Mcomps4` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -1214,8 +1418,10 @@ CREATE TABLE `Mec1` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -1230,8 +1436,10 @@ CREATE TABLE `Mec2` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -1246,8 +1454,10 @@ CREATE TABLE `Mec3` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -1262,8 +1472,10 @@ CREATE TABLE `Mec4` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -1278,8 +1490,10 @@ CREATE TABLE `mech2` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -1294,8 +1508,10 @@ CREATE TABLE `mech3` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -1310,8 +1526,10 @@ CREATE TABLE `mech4` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -1326,8 +1544,10 @@ CREATE TABLE `mech5` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -1342,8 +1562,10 @@ CREATE TABLE `mech6` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -1358,8 +1580,10 @@ CREATE TABLE `mech7` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -1374,8 +1598,10 @@ CREATE TABLE `mech8` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -1390,8 +1616,10 @@ CREATE TABLE `Mele1` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -1406,8 +1634,10 @@ CREATE TABLE `Mele2` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -1422,8 +1652,10 @@ CREATE TABLE `Mele3` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -1438,8 +1670,10 @@ CREATE TABLE `Mele4` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -1454,8 +1688,10 @@ CREATE TABLE `Mmech1` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -1470,8 +1706,10 @@ CREATE TABLE `Mmech2` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -1486,8 +1724,10 @@ CREATE TABLE `Mmech3` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -1502,8 +1742,10 @@ CREATE TABLE `Mmech4` (
   `exam` varchar(20) NOT NULL,
   `file_location` varchar(60) NOT NULL,
   `Remarks` varchar(30) NOT NULL,
-`Uploader` varchar(30) NOT NULL
+`Uploader` varchar(30) NOT NULL,
+`accepted` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -1518,6 +1760,7 @@ CREATE TABLE `M.Sc.` (
   `Department` varchar(50) NOT NULL,
   `Sem_table_name` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 
 CREATE TABLE `duplicates` (
@@ -2092,6 +2335,20 @@ ALTER TABLE `Mmech3`
 ALTER TABLE `Mmech4`
   ADD PRIMARY KEY (`id`);
 
+  ALTER TABLE `msc1sem1`
+    ADD PRIMARY KEY (`id`);
+
+    ALTER TABLE `msc1sem2`
+      ADD PRIMARY KEY (`id`);
+
+
+
+  ALTER TABLE `btech1work`
+    ADD PRIMARY KEY (`id`);
+
+    ALTER TABLE `btech1draw`
+      ADD PRIMARY KEY (`id`);
+
 --
 -- Indexes for table `M.Sc.`
 --
@@ -2106,6 +2363,19 @@ ALTER TABLE `M.Sc.`
 --
 -- AUTO_INCREMENT for table `appchem3`
 --
+
+ALTER TABLE `btech1draw`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+  ALTER TABLE `btech1work`
+    MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+    ALTER TABLE `msc1sem1`
+      MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+      ALTER TABLE `msc1sem2`
+        MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 ALTER TABLE `appchem3`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --

@@ -83,6 +83,15 @@ public class addQPaper extends android.support.v4.app.DialogFragment implements 
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 controllerAddPaper.setselectedSem(position);
+
+                if(controllerAddPaper.getselectedYear()==1 && controllerAddPaper.getselectedCourse()==1){
+                    controllerAddPaper.setselectedDept(7);
+                    controllerAddPaper.setSelectedDeptName("btech1");
+                }
+                else if (controllerAddPaper.getselectedYear()==1 && controllerAddPaper.getselectedCourse()==2){
+                    controllerAddPaper.setselectedDept(7);
+                    controllerAddPaper.setSelectedDeptName("msc1");
+                }
             }
 
             @Override
@@ -115,8 +124,29 @@ public class addQPaper extends android.support.v4.app.DialogFragment implements 
                     deptListLayout.setVisibility(View.GONE);
                     semListLayout.setVisibility(View.GONE);
                 }
-                else if(posyear ==1){
-                    controllerAddPaper.setVisibilityyearListLayout(deptListLayout);
+                else if(posyear ==1 && controllerAddPaper.getselectedCourse()!=3){
+
+                    deptListLayout.setVisibility(View.VISIBLE);
+                    deptList.setEnabled(false);
+                    controllerAddPaper.setVisibilityyearListLayout(semListLayout);
+                    semList.setEnabled(true);
+
+                    if(controllerAddPaper.getselectedCourse()==1) {
+
+                        initializeAndSetSpinner(semListLayout, getContext(), R.array.year1btech, semList);
+
+                    }
+                    else if(controllerAddPaper.getselectedCourse()==2){
+
+                        initializeAndSetSpinner(semListLayout, getContext(), R.array.year1msc, semList);
+
+                    }
+                    /*else{
+
+                        initializeAndSetSpinner(semListLayout, getContext(), R.array.year1mtech, semList);
+                        controllerAddPaper.setselectedDept(7);
+                        controllerAddPaper.setSelectedDeptName("mtech1");
+                    }*/
                 }
                 else {
 
@@ -124,6 +154,9 @@ public class addQPaper extends android.support.v4.app.DialogFragment implements 
 
                     deptList.setEnabled(true);
                     switch (controllerAddPaper.getselectedYear()) {
+                        case 1:
+                            initializeAndSetSpinner(semListLayout, getContext(), R.array.year1mtech, semList);
+
                         case 2:
 
                             initializeAndSetSpinner(semListLayout, getContext(), R.array.year2, semList);
@@ -165,7 +198,8 @@ public class addQPaper extends android.support.v4.app.DialogFragment implements 
         switch(poscourse){
             case 0:
                 yearListLayout.setVisibility(View.GONE);
-
+                deptListLayout.setVisibility(View.GONE);
+                semListLayout.setVisibility(View.GONE);
                 break;
 
             case 1:
@@ -238,17 +272,7 @@ public class addQPaper extends android.support.v4.app.DialogFragment implements 
                     Toast.LENGTH_SHORT).show();
             return false;
         }
-        else{
-
-            if(controllerAddPaper.getselectedYear()==1){
-                bundle.putInt("Selection", 1);
-                bundle.putString("course", getResources().getStringArray(R.array.Course_List)[controllerAddPaper.getselectedCourse()]);
-                bundle.putString("year","1st Year");
-
-                return true;
-            }
-            else {
-                if(controllerAddPaper.getselectedDept() == 0 || controllerAddPaper.getselectedSem()==0){
+        else if(controllerAddPaper.getselectedDept() == 0 || controllerAddPaper.getselectedSem()==0){
                     Log.v("dept",Integer.toString(controllerAddPaper.getselectedDept()));
                     Log.v("sem",Integer.toString(controllerAddPaper.getselectedSem()));
                     Toast.makeText(getContext(), "Department or Semester Missing",
@@ -257,7 +281,6 @@ public class addQPaper extends android.support.v4.app.DialogFragment implements 
                 }
                 else{
 
-                    bundle.putInt("Selection", 2);
                     bundle.putString("course", getResources().getStringArray(R.array.Course_List)[controllerAddPaper.getselectedCourse()]);
                     bundle.putString("year",getResources().getStringArray(R.array.Year_List_Msc)[controllerAddPaper.getselectedYear()]);
                     bundle.putString("dept",controllerAddPaper.getSelectedDeptName());
@@ -265,9 +288,6 @@ public class addQPaper extends android.support.v4.app.DialogFragment implements 
                     return true;
                 }
             }
-
-        }
-    }
 
     public void onResume(){
         super.onResume();

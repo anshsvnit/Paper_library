@@ -29,6 +29,21 @@
         <item>1st Year</item>
         <item>2nd Year</item>
     </string-array>
+    <string-array name="year1btech">
+        <item>Select Semester...</item>
+        <item>Drawing Sem</item>
+        <item>Workshop Sem</item>
+    </string-array>
+    <string-array name="year1mtech">
+        <item>Select Semester...</item>
+        <item>1st Semester</item>
+        <item>2nd Semester</item>
+    </string-array>
+    <string-array name="year1msc">
+        <item>Select Semester...</item>
+        <item>1st Semester</item>
+        <item>2nd Semester</item>
+    </string-array>
     <string-array name="year2">
         <item>Select Semester...</item>
         <item>3rd Semester</item>

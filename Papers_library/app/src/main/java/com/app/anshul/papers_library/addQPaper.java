@@ -141,12 +141,7 @@ public class addQPaper extends android.support.v4.app.DialogFragment implements 
                         initializeAndSetSpinner(semListLayout, getContext(), R.array.year1msc, semList);
 
                     }
-                    /*else{
 
-                        initializeAndSetSpinner(semListLayout, getContext(), R.array.year1mtech, semList);
-                        controllerAddPaper.setselectedDept(7);
-                        controllerAddPaper.setSelectedDeptName("mtech1");
-                    }*/
                 }
                 else {
 

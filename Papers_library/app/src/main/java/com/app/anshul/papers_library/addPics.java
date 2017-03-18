@@ -80,9 +80,13 @@ public class addPics extends Activity {
         upload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Intent intent = new Intent(mcontext, mainActivityImageLoader.class);
-                startActivityForResult(intent,constantResources.IMAGE_LOADER);
+                if(isvalid(subjectInput,nameInput)){
+                    Intent intent = new Intent(mcontext, mainActivityImageLoader.class);
+                    startActivityForResult(intent,constantResources.IMAGE_LOADER);
+                }
+                else{
+                    Toast.makeText(addPics.this, "Subject name or uploader Missing.", Toast.LENGTH_LONG).show();
+                }
 
             }
         });
@@ -90,12 +94,19 @@ public class addPics extends Activity {
         takePics.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentcam = new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA);
-                intentcam.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+                if(isvalid(subjectInput,nameInput)) {
 
-                if (intentcam.resolveActivity(getPackageManager()) != null) {
-                    startActivityForResult(intentcam,RESULT_CAM);
+                    Intent intentcam = new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA);
+                    intentcam.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+
+                    if (intentcam.resolveActivity(getPackageManager()) != null) {
+                        startActivityForResult(intentcam,RESULT_CAM);
+                    }
                 }
+                else{
+                    Toast.makeText(addPics.this, "Subject name or uploader Missing.", Toast.LENGTH_LONG).show();
+                }
+
             }
         });
     }
@@ -229,9 +240,10 @@ public class addPics extends Activity {
             details.putString("yearofExam",yearString);
             details.putString("exam",examString);
             details.putString("subject",subjectString);
+            details.putString("name",nameString);
+
             if(remarkString!=null){
                 details.putString("remark",remarkString);
-                details.putString("name",nameString);
             }
             return true;
         }
@@ -245,6 +257,14 @@ public class addPics extends Activity {
         Log.v("dept",bundle.getString("dept"));
         Log.v("course",bundle.getString("course"));
         Log.v("sem",bundle.getString("sem"));
+    }
+
+    public boolean isvalid(EditText mEditText1,EditText mEditText2){
+        if(mEditText1.getText().toString().equalsIgnoreCase("") || mEditText2.getText().toString().equalsIgnoreCase("")){
+            return false;
+        }
+        else
+            return true;
     }
 
 }

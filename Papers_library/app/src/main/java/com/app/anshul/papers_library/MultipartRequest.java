@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.NetworkResponse;
 import com.android.volley.NoConnectionError;
 import com.android.volley.Request;
@@ -34,7 +35,7 @@ import static com.app.anshul.papers_library.NetworkConnection.context;
 public class MultipartRequest {
 
     private static MultipartRequest instance;
-
+    private int socketTimeout = 30000;
 
     public static MultipartRequest getInstance() {
         if (instance == null) {
@@ -60,7 +61,7 @@ public class MultipartRequest {
                     Log.i("status", status);
                     Log.i("Messsage", message);
 
-                    Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context,"Thanks For submission. It's sent for review", Toast.LENGTH_SHORT).show();
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -113,17 +114,20 @@ public class MultipartRequest {
                     params.put("yearofexam", details.getString("yearofExam"));
                     params.put("subject", details.getString("subject"));
                     params.put("exam", details.getString("exam"));
+                    params.put("uploader",details.getString("name"));
                     params.put("course",bundle.getString("course"));
                     params.put("year",bundle.getString("year"));
                     params.put("semester",bundle.getString("sem"));
                     params.put("department",bundle.getString("dept"));
-                    params.put("filename",pdffilename);
+
+                params.put("filename",pdffilename);
                 try{
                     params.put("remark", details.getString("remark"));
                 }
                 catch (Exception e){
                     Log.v("remark not there",e.toString());
                 }
+
                 return params;
             }
 
@@ -136,6 +140,11 @@ public class MultipartRequest {
             }
         };
         Log.v("sizeg", multipartRequest.toString());
+
+        multipartRequest.setRetryPolicy(new DefaultRetryPolicy(
+                socketTimeout,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         MyApplication.getInstance().addToReqQueue(multipartRequest);
     }
 
@@ -246,6 +255,12 @@ public class MultipartRequest {
             }
         };
         Log.v("sizeg", multipartRequest.toString());
+
+        multipartRequest.setRetryPolicy(new DefaultRetryPolicy(
+                socketTimeout,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+
         MyApplication.getInstance().addToReqQueue(multipartRequest);
         Toast.makeText(context, "Getting Year List" , Toast.LENGTH_SHORT).show();
 
@@ -320,6 +335,12 @@ public class MultipartRequest {
             }
         };
         Log.v("sizeg", multipartRequest.toString());
+
+        multipartRequest.setRetryPolicy(new DefaultRetryPolicy(
+                socketTimeout,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+            
         MyApplication.getInstance().addToReqQueue(multipartRequest);
         Toast.makeText(context, "Fetching Available Papers" , Toast.LENGTH_SHORT).show();
 

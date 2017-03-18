@@ -31,7 +31,35 @@
         android:fitsSystemWindows="true"
         android:theme="@style/AppTheme.AppBarOverlay">
 
-
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="36dp">
+        <TextView
+            android:text="Click to Upload Papers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/uploadText"
+            android:fontFamily="casual"
+            android:textSize="26sp"
+            android:typeface="monospace" />
+</LinearLayout>
     </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|left"
+        android:layout_marginBottom="36dp">
+    <TextView
+        android:text="Click to Search Papers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/searchText"
+        android:fontFamily="casual"
+        android:textSize="26sp"
+        android:typeface="monospace"
+        android:textColor="@android:color/black" />
+    </LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>

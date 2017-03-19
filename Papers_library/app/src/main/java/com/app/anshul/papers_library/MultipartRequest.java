@@ -75,7 +75,7 @@ public class MultipartRequest {
                 String errorMessage = "Unknown error";
                 if (networkResponse == null) {
                     if (error.getClass().equals(TimeoutError.class)) {
-                        errorMessage = "Request timeout";
+                        errorMessage = "Request timeout. Slow Internet";
                     } else if (error.getClass().equals(NoConnectionError.class)) {
                         errorMessage = "Failed to connect server";
                     }
@@ -193,9 +193,14 @@ public class MultipartRequest {
                 try {
                     JSONObject result = new JSONObject(resultResponse);
                     listyearJson(resultResponse);
-                    Intent intent = new Intent(context, yearList.class);
-                    intent.putExtra("Values", details);
-                    context.startActivity(intent);
+                    if(ParseJson.years.size()!=0) {
+                        Intent intent = new Intent(context, yearList.class);
+                        intent.putExtra("Values", details);
+                        context.startActivity(intent);
+                    }
+                    else{
+                        Toast.makeText(context, "No accepted Papers for selected semester", Toast.LENGTH_SHORT).show();
+                    }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -340,7 +345,7 @@ public class MultipartRequest {
                 socketTimeout,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-            
+
         MyApplication.getInstance().addToReqQueue(multipartRequest);
         Toast.makeText(context, "Fetching Available Papers" , Toast.LENGTH_SHORT).show();
 

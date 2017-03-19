@@ -22,7 +22,7 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import java.util.*;
 import com.itextpdf.text.DocumentException;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -95,6 +95,7 @@ public class addPics extends Activity {
             @Override
             public void onClick(View v) {
                 if(isvalid(subjectInput,nameInput)) {
+                    Toast.makeText(mcontext,"Take all pictures and press back button when done",Toast.LENGTH_SHORT).show();
 
                     Intent intentcam = new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA);
                     intentcam.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
@@ -123,7 +124,7 @@ public class addPics extends Activity {
                     ClipData mClipData = data.getClipData();
                     imagesEncodedList = new ArrayList<String>();
                     imagesEncodedList = data.getStringArrayListExtra("imageList");
-
+                    Collections.reverse(imagesEncodedList);
                    AlertDialog.Builder alertDialogBuilder =  new AlertDialog.Builder(mcontext)
                             .setTitle("Submit Paper")
                             .setMessage("You have selected " + imagesEncodedList.size() + " pages. Are you sure you want to submit")

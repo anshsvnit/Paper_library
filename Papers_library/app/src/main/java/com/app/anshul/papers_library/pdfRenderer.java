@@ -30,14 +30,10 @@ import java.io.FilenameFilter;
  */
 
 public class pdfRenderer  extends Activity {
-    String[] pdflist;
-    File[] imagelist;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pdfview);
-
-        //getIntent().getExtras().getString("tempLocationPDF");
 
         String path = getIntent().getExtras().getString("tempLocationPDF");
         Log.v("tempLocation", path);
@@ -45,18 +41,6 @@ public class pdfRenderer  extends Activity {
         PDFView pdfView = (PDFView) findViewById(R.id.pdfviewer);
         File file = new File(path);
 
-        //File file = new File(path);
-        //String getDirectoryPath="/storage/sdcard0/abc.pdf"; // A valid file path
-
-        //String path =
-
-        /*try {
-            final Intent intent = new Intent(pdfRenderer.this, second.class);
-            intent.putExtra(PdfViewerActivity.EXTRA_PDFFILENAME, path);
-            startActivity(intent);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }*/
         pdfView.fromFile(file)
                 // all pages are displayed by default
                 .enableSwipe(true)

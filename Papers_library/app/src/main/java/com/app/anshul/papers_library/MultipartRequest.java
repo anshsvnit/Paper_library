@@ -1,9 +1,15 @@
 package com.app.anshul.papers_library;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.NotificationCompat;
 import android.util.Log;
+import android.widget.ProgressBar;
+import android.widget.RemoteViews;
 import android.widget.Toast;
 
 import com.android.volley.DefaultRetryPolicy;
@@ -25,6 +31,7 @@ import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
+import static android.content.Context.NOTIFICATION_SERVICE;
 import static com.app.anshul.papers_library.NetworkConnection.context;
 
 
@@ -36,6 +43,7 @@ public class MultipartRequest {
 
     private static MultipartRequest instance;
     private int socketTimeout = 30000;
+    int NOTIFICATION_ID = 1;
 
     public static MultipartRequest getInstance() {
         if (instance == null) {
@@ -46,6 +54,7 @@ public class MultipartRequest {
 
     public void savePDFFile(final String address, final String pdffilename, final Bundle details , final Bundle bundle, final Context context) {
 
+        //showProgressBar();
 
         VolleyMultipartRequest multipartRequest = new VolleyMultipartRequest(Request.Method.POST, constantResources.urlupload, new Response.Listener<NetworkResponse>() {
             @Override
@@ -60,7 +69,8 @@ public class MultipartRequest {
 
                     Log.i("status", status);
                     Log.i("Messsage", message);
-
+                    NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+                    notificationManager.cancel(NOTIFICATION_ID);
                     Toast.makeText(context,"Thanks For submission. It's sent for review", Toast.LENGTH_SHORT).show();
 
                 } catch (JSONException e) {
@@ -106,6 +116,8 @@ public class MultipartRequest {
                 Toast.makeText(context, errorMessage, Toast.LENGTH_SHORT).show();
 
                 error.printStackTrace();
+                NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+                notificationManager.cancel(NOTIFICATION_ID);
             }
         }) {
             @Override
@@ -146,6 +158,9 @@ public class MultipartRequest {
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         MyApplication.getInstance().addToReqQueue(multipartRequest);
+
+        applynotifs(context,details);
+
     }
 
 
@@ -365,4 +380,19 @@ public class MultipartRequest {
 
     }
 
+
+    public void applynotifs(Context context,Bundle details){
+        NotificationCompat.Builder notifBuilder =
+                new NotificationCompat.Builder(context);
+        notifBuilder.setSmallIcon(R.drawable.icon_add)
+                .setContentTitle("Uploading Paper")
+                .setContentText("Uploading "+details.getString("subject")+" Paper")
+                .setProgress(300000,1,true)
+                .setOngoing(true);
+
+        NotificationManager mNotificationManager =
+                (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+// mId allows you to update the notification later on.
+        mNotificationManager.notify(NOTIFICATION_ID, notifBuilder.build());
+    }
 }

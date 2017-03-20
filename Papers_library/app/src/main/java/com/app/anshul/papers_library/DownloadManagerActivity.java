@@ -17,6 +17,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import org.apache.commons.io.FileUtils;
@@ -31,6 +32,8 @@ public class DownloadManagerActivity extends Activity {
     private long enqueue;
     private DownloadManager dm;
     int selectedPaperPos;
+    Button retrybtn;
+    public String filename,location;
 
     /** Called when the activity is first created. */
     @Override
@@ -38,6 +41,24 @@ public class DownloadManagerActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         selectedPaperPos = getIntent().getExtras().getInt("selectedPaper");
+        retrybtn = (Button) findViewById(R.id.retry);
+        filename = ParseJson.fileLocation.get(selectedPaperPos);
+        location = constantResources.downloadFolder+filename;
+        final Context context = this;
+
+        retrybtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                File file = new File(location);
+                if(file.exists()){
+                    boolean deleted = file.delete();
+                }
+                    Request request = new Request(
+                            Uri.parse(serverAdd + uploadFolder + ParseJson.fileLocation.get(selectedPaperPos)));
+                    request.setDestinationInExternalFilesDir(context, Environment.DIRECTORY_DOWNLOADS, ParseJson.fileLocation.get(selectedPaperPos));
+                    enqueue = dm.enqueue(request);
+            }
+        });
 
         BroadcastReceiver receiver = new BroadcastReceiver() {
             @Override
@@ -74,8 +95,6 @@ public class DownloadManagerActivity extends Activity {
 
     public void onClick(View view) {
 
-        String filename = ParseJson.fileLocation.get(selectedPaperPos);
-        String location = constantResources.downloadFolder+filename;
         dm = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
         Log.v("filename",filename);
         Log.v("location",location);

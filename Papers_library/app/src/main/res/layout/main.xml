@@ -10,4 +10,10 @@
         android:onClick="showDownload"></Button>
     <ImageView android:layout_height="wrap_content" android:id="@+id/imageView1"
         android:layout_width="wrap_content"></ImageView>
+
+    <Button
+        android:text="Re Download Paper"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/retry" />
 </LinearLayout>
